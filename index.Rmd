@@ -35,8 +35,9 @@ Rやプログラミング初心者、自称文系でパソコンに対する知�
 
 ## 何を起動するのか
 
-Rの準備作業では、RのインストールとRStudioのインストールを行いました。
-ですから、Windowsのスタートメニューをよくみると、RとRStudioの２つがあります（図\@ref(fig:windowsStartMenu)）が、このうち、これから皆さんが使っていくのは**RStudio**の方です。
+[初心者向けRのインストールガイド](https://syunsuke.github.io/r_install_guide_for_beginners/)
+に従って準備作業された場合には、RとRStudioがインストールされていると思います。
+ですから、Windowsのスタートメニューを見ると、RとRStudioの２つがあります（図\@ref(fig:windowsStartMenu)）が、このうち、これから皆さんが使っていくのは**RStudio**の方です。
 
 **R**は、R言語を処理するためのプログラムであり、
 入力されたコマンドを解釈して処理し、
@@ -66,8 +67,9 @@ Rの準備作業では、RのインストールとRStudioのインストール�
 このIDEには、沢山のものがありますが、
 Rのプログラミングを行う際に定番なIDEは、**RStudio**です。
 
-ですから、Windowsのスタートメニューからあなたが起動するのは、
-**RStudio**なのです。
+ですから、Rの作業を行う時は、
+Windowsのスタートメニューから**RStudio**を起動します。
+
 
 ```{r windowsStartMenu, echo=FALSE, out.width="95%", fig.cap="スタートメニュの中のRStudio"}
 knitr::include_graphics("images/windows_start_menu.png")
@@ -78,7 +80,8 @@ knitr::include_graphics("images/windows_start_menu.png")
 ## ペインとタブ
 
 RStudioを立ち上げて、まずは、RStudioの見た目に慣れましょう。
-おおざっぱにみて３つの部分に分かれていることが把握できるはずです。（図\@ref(fig:rstudiolook001)）
+大雑把に見て３つの部分に分かれていることが把握できるはずです。
+（図\@ref(fig:rstudiolook001)）
 この区分されている一つ一つの部分を区画や**ペイン**と呼びます。
 
 ```{r rstudiolook001, echo=FALSE, out.width="80%", fig.cap="ペインで構成されるRStudio"}
