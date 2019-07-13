@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>Rビギナーズガイド</title>
+  <meta name="description" content="Rビギナーズガイド" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="Rビギナーズガイド" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="Rビギナーズガイド" />
+  
+  
+  
+
+<meta name="author" content="Syunsuke Fukuda" />
+
+
+<meta name="date" content="2019-07-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+
+<link rel="next" href="02_command.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Rビギナーズガイド<a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 初めてのRStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.1</b> 何を起動するのか</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i><b>1.2</b> ペインとタブ</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i><b>1.3</b> コンソール</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02_command.html"><a href="02_command.html"><i class="fa fa-check"></i><b>2</b> コンソールとコマンド</a><ul>
+<li class="chapter" data-level="2.1" data-path="02_command.html"><a href="02_command.html#section-4"><i class="fa fa-check"></i><b>2.1</b> コマンド</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="02_command.html"><a href="02_command.html#section-5"><i class="fa fa-check"></i><b>2.1.1</b> 四則演算</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02_command.html"><a href="02_command.html#section-6"><i class="fa fa-check"></i><b>2.1.2</b> 関数</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02_command.html"><a href="02_command.html#section-7"><i class="fa fa-check"></i><b>2.2</b> 履歴機能</a></li>
+<li class="chapter" data-level="2.3" data-path="02_command.html"><a href="02_command.html#section-8"><i class="fa fa-check"></i><b>2.3</b> 補完機能</a></li>
+<li class="chapter" data-level="2.4" data-path="02_command.html"><a href="02_command.html#section-9"><i class="fa fa-check"></i><b>2.4</b> 複数行入力</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="02_command.html"><a href="02_command.html#section-10"><i class="fa fa-check"></i><b>2.4.1</b> 複数行入力と第２プロンプト “+”</a></li>
+<li class="chapter" data-level="2.4.2" data-path="02_command.html"><a href="02_command.html#section-11"><i class="fa fa-check"></i><b>2.4.2</b> 複数行入力のキャンセル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="02_command.html"><a href="02_command.html#section-12"><i class="fa fa-check"></i><b>2.5</b> 変数と代入</a></li>
+<li class="chapter" data-level="2.6" data-path="02_command.html"><a href="02_command.html#section-13"><i class="fa fa-check"></i><b>2.6</b> ベクトル</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="02_command.html"><a href="02_command.html#section-14"><i class="fa fa-check"></i><b>2.6.1</b> ベクトルの作成</a></li>
+<li class="chapter" data-level="2.6.2" data-path="02_command.html"><a href="02_command.html#section-15"><i class="fa fa-check"></i><b>2.6.2</b> データの型とベクトルの性質</a></li>
+<li class="chapter" data-level="2.6.3" data-path="02_command.html"><a href="02_command.html#section-18"><i class="fa fa-check"></i><b>2.6.3</b> ベクトルと要素</a></li>
+<li class="chapter" data-level="2.6.4" data-path="02_command.html"><a href="02_command.html#section-19"><i class="fa fa-check"></i><b>2.6.4</b> ベクトルを使って計算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="02_command.html"><a href="02_command.html#section-20"><i class="fa fa-check"></i><b>2.7</b> データフレーム</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="02_command.html"><a href="02_command.html#view"><i class="fa fa-check"></i><b>2.7.1</b> データをView()でみる</a></li>
+<li class="chapter" data-level="2.7.2" data-path="02_command.html"><a href="02_command.html#section-21"><i class="fa fa-check"></i><b>2.7.2</b> 行と列</a></li>
+<li class="chapter" data-level="2.7.3" data-path="02_command.html"><a href="02_command.html#section-22"><i class="fa fa-check"></i><b>2.7.3</b> 整然データとキーワード</a></li>
+<li class="chapter" data-level="2.7.4" data-path="02_command.html"><a href="02_command.html#section-23"><i class="fa fa-check"></i><b>2.7.4</b> 列の名前と列へのアクセス</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03_path.html"><a href="03_path.html"><i class="fa fa-check"></i><b>3</b> パス</a><ul>
+<li class="chapter" data-level="3.1" data-path="03_path.html"><a href="03_path.html#section-25"><i class="fa fa-check"></i><b>3.1</b> ファイルを扱うために必要不可欠な知識</a></li>
+<li class="chapter" data-level="3.2" data-path="03_path.html"><a href="03_path.html#windows"><i class="fa fa-check"></i><b>3.2</b> Windowsのディレクトリ構成</a></li>
+<li class="chapter" data-level="3.3" data-path="03_path.html"><a href="03_path.html#section-26"><i class="fa fa-check"></i><b>3.3</b> パスの書き方のルール</a></li>
+<li class="chapter" data-level="3.4" data-path="03_path.html"><a href="03_path.html#windows-1"><i class="fa fa-check"></i><b>3.4</b> Windowsのパスの注意点</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="03_path.html"><a href="03_path.html#section-27"><i class="fa fa-check"></i><b>3.4.1</b> ディレクトリを表す記号</a></li>
+<li class="chapter" data-level="3.4.2" data-path="03_path.html"><a href="03_path.html#section-28"><i class="fa fa-check"></i><b>3.4.2</b> ディレクトリ名称</a></li>
+<li class="chapter" data-level="3.4.3" data-path="03_path.html"><a href="03_path.html#section-29"><i class="fa fa-check"></i><b>3.4.3</b> 間違えがちな所</a></li>
+<li class="chapter" data-level="3.4.4" data-path="03_path.html"><a href="03_path.html#section-30"><i class="fa fa-check"></i><b>3.4.4</b> パス入力の実習</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="03_path.html"><a href="03_path.html#section-31"><i class="fa fa-check"></i><b>3.5</b> カレントディレクトリ</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="03_path.html"><a href="03_path.html#section-32"><i class="fa fa-check"></i><b>3.5.1</b> カレントディレクトリとパスの種類</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="03_path.html"><a href="03_path.html#section-33"><i class="fa fa-check"></i><b>3.6</b> カレントディレクトリを意識した作業</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="03_path.html"><a href="03_path.html#section-34"><i class="fa fa-check"></i><b>3.6.1</b> デスクトップでの事前準備</a></li>
+<li class="chapter" data-level="3.6.2" data-path="03_path.html"><a href="03_path.html#section-35"><i class="fa fa-check"></i><b>3.6.2</b> カレントディレクトリの変更</a></li>
+<li class="chapter" data-level="3.6.3" data-path="03_path.html"><a href="03_path.html#section-36"><i class="fa fa-check"></i><b>3.6.3</b> ファイルの読み込み作業</a></li>
+<li class="chapter" data-level="3.6.4" data-path="03_path.html"><a href="03_path.html#section-37"><i class="fa fa-check"></i><b>3.6.4</b> 相対パスと絶対パス</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="03_path.html"><a href="03_path.html#rstduio"><i class="fa fa-check"></i><b>3.7</b> RStduioのプロジェクト</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="03_path.html"><a href="03_path.html#section-38"><i class="fa fa-check"></i><b>3.7.1</b> プロジェクトの作成</a></li>
+<li class="chapter" data-level="3.7.2" data-path="03_path.html"><a href="03_path.html#rstudio-1"><i class="fa fa-check"></i><b>3.7.2</b> RStudioに小さく表示される情報</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04_package.html"><a href="04_package.html"><i class="fa fa-check"></i><b>4</b> パッケージ</a><ul>
+<li class="chapter" data-level="4.1" data-path="04_package.html"><a href="04_package.html#rstudio-2"><i class="fa fa-check"></i><b>4.1</b> RStudioでのパッケージのインストール</a></li>
+<li class="chapter" data-level="4.2" data-path="04_package.html"><a href="04_package.html#section-40"><i class="fa fa-check"></i><b>4.2</b> パッケージの管理</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="04_package.html"><a href="04_package.html#section-41"><i class="fa fa-check"></i><b>4.2.1</b> アップデート</a></li>
+<li class="chapter" data-level="4.2.2" data-path="04_package.html"><a href="04_package.html#section-42"><i class="fa fa-check"></i><b>4.2.2</b> マニュアルをみる</a></li>
+<li class="chapter" data-level="4.2.3" data-path="04_package.html"><a href="04_package.html#section-43"><i class="fa fa-check"></i><b>4.2.3</b> パッケージの読み込みとデタッチ</a></li>
+<li class="chapter" data-level="4.2.4" data-path="04_package.html"><a href="04_package.html#web"><i class="fa fa-check"></i><b>4.2.4</b> パッケージに関するWebサイトをみる</a></li>
+<li class="chapter" data-level="4.2.5" data-path="04_package.html"><a href="04_package.html#section-44"><i class="fa fa-check"></i><b>4.2.5</b> パッケージアンインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="04_package.html"><a href="04_package.html#library"><i class="fa fa-check"></i><b>4.3</b> パッケージを読み込むlibrary()関数</a></li>
+<li class="chapter" data-level="4.4" data-path="04_package.html"><a href="04_package.html#github"><i class="fa fa-check"></i><b>4.4</b> GitHubにあるパッケージのインストール</a></li>
+<li class="chapter" data-level="4.5" data-path="04_package.html"><a href="04_package.html#section-45"><i class="fa fa-check"></i><b>4.5</b> 有名なパッケージ</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="04_package.html"><a href="04_package.html#tidyverse"><i class="fa fa-check"></i><b>4.5.1</b> tidyverse</a></li>
+<li class="chapter" data-level="4.5.2" data-path="04_package.html"><a href="04_package.html#devtools"><i class="fa fa-check"></i><b>4.5.2</b> devtools</a></li>
+<li class="chapter" data-level="4.5.3" data-path="04_package.html"><a href="04_package.html#leaflet"><i class="fa fa-check"></i><b>4.5.3</b> leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05_script.html"><a href="05_script.html"><i class="fa fa-check"></i><b>5</b> 日常作業は、R Notebookで行う</a><ul>
+<li class="chapter" data-level="5.1" data-path="05_script.html"><a href="05_script.html#section-46"><i class="fa fa-check"></i><b>5.1</b> 作業の準備はプロジェクトから</a></li>
+<li class="chapter" data-level="5.2" data-path="05_script.html"><a href="05_script.html#r-notebook-1"><i class="fa fa-check"></i><b>5.2</b> R Notebookを新規作成する</a></li>
+<li class="chapter" data-level="5.3" data-path="05_script.html"><a href="05_script.html#r-notebook-2"><i class="fa fa-check"></i><b>5.3</b> R Notebookの構造</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="05_script.html"><a href="05_script.html#yaml"><i class="fa fa-check"></i><b>5.3.1</b> 設定を行うYAMLヘッダ</a></li>
+<li class="chapter" data-level="5.3.2" data-path="05_script.html"><a href="05_script.html#section-47"><i class="fa fa-check"></i><b>5.3.2</b> コードが実行できる場所、チャンク</a></li>
+<li class="chapter" data-level="5.3.3" data-path="05_script.html"><a href="05_script.html#section-48"><i class="fa fa-check"></i><b>5.3.3</b> それ以外の部分</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="05_script.html"><a href="05_script.html#r-notebook--"><i class="fa fa-check"></i><b>5.4</b> R Notebook と マークダウン</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="05_script.html"><a href="05_script.html#section-49"><i class="fa fa-check"></i><b>5.4.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.4.2" data-path="05_script.html"><a href="05_script.html#section-50"><i class="fa fa-check"></i><b>5.4.2</b> マークダウンの出力ファイル</a></li>
+<li class="chapter" data-level="5.4.3" data-path="05_script.html"><a href="05_script.html#section-51"><i class="fa fa-check"></i><b>5.4.3</b> 出力形式の変更</a></li>
+<li class="chapter" data-level="5.4.4" data-path="05_script.html"><a href="05_script.html#r-notebook-3"><i class="fa fa-check"></i><b>5.4.4</b> R Notebookとして出力するための設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="05_script.html"><a href="05_script.html#r"><i class="fa fa-check"></i><b>5.5</b> マークダウンとRマークダウン</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="05_script.html"><a href="05_script.html#section-52"><i class="fa fa-check"></i><b>5.5.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05_script.html"><a href="05_script.html#r-1"><i class="fa fa-check"></i><b>5.5.2</b> Rマークダウン</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05_script.html"><a href="05_script.html#r-notebook-"><i class="fa fa-check"></i><b>5.6</b> R Notebook とは</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="05_script.html"><a href="05_script.html#section-58"><i class="fa fa-check"></i><b>5.6.1</b> 保存すると、自動で出力される</a></li>
+<li class="chapter" data-level="5.6.2" data-path="05_script.html"><a href="05_script.html#section-59"><i class="fa fa-check"></i><b>5.6.2</b> ファイルを持ち運べる</a></li>
+<li class="chapter" data-level="5.6.3" data-path="05_script.html"><a href="05_script.html#html"><i class="fa fa-check"></i><b>5.6.3</b> 只のhtmlファイルではない</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rビギナーズガイド</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="header">
+<h1 class="title">Rビギナーズガイド</h1>
+<p class="author"><em>Syunsuke Fukuda</em></p>
+<p class="date"><em>2019-07-13</em></p>
+</div>
+<div id="rstudio" class="section level1">
+<h1><span class="header-section-number">1</span> 初めてのRStudio</h1>
+<p>Rやプログラミング初心者、自称文系でパソコンに対する知識があまりない方へのガイドです。</p>
+<p>コンソール上でのコマンドやファイルパスに関する知識を紹介したうえで、
+統合開発環境RStudioに触れてもらい、
+最終的にR Notebookで作業が出来るようになることが目標です。</p>
+<div id="section" class="section level2">
+<h2><span class="header-section-number">1.1</span> 何を起動するのか</h2>
+<p><a href="https://syunsuke.github.io/r_install_guide_for_beginners/">初心者向けRのインストールガイド</a>
+に従って準備作業された場合には、RとRStudioがインストールされていると思います。
+ですから、Windowsのスタートメニューを見ると、RとRStudioの２つがあります（図<a href="index.html#fig:windowsStartMenu">1.1</a>）が、このうち、これから皆さんが使っていくのは<strong>RStudio</strong>の方です。</p>
+<p><strong>R</strong>は、R言語を処理するためのプログラムであり、
+入力されたコマンドを解釈して処理し、
+その結果を出力するプログラムです。
+そして、<strong>それ以外のこと</strong>は殆どしてくれません。</p>
+<p>プログラミングの経験があまりない方にとっては、「それ以外のことって何？
+パソコンはただ計算して処理してくれるものだし、それで十分じゃないの？」と思われるかもしれません。</p>
+<p>しかし、実際のプログラミング作業では、
+正確なコマンド入力を行い、
+プログラミングの流れを正確に把握し、
+沢山の必要となるファイルを管理する必要があります。
+そして、この何千行もあるプログラミングコードの中のただの一文字を間違えたただけでも、
+プログラムは正しく動いてくれなくなります。</p>
+<p>そこで、このように面倒なプログラミング作業を正確に行うためには、
+通常、「それ以外のこと」が大いに必要となります。
+一般的に、プログラミング作業を行う場合には、
+この「それ以外のこと」もひっくるめて、
+誰でも正確なプログラミングが簡単にできるように
+プログラミング作業をサポートしてくれるソフトを使うことになります。</p>
+<p>このプログラミング作業をサポートしてくれるソフトのことを
+<strong>統合開発環境</strong>と呼びます。英語では、Integrated Development Environmentと呼ばれるため、
+略して<strong>IDE</strong>とも呼ばれます。
+このIDEには、沢山のものがありますが、
+Rのプログラミングを行う際に定番なIDEは、<strong>RStudio</strong>です。</p>
+<p>ですから、Rの作業を行う時は、
+Windowsのスタートメニューから<strong>RStudio</strong>を起動します。</p>
+<div class="figure" style="text-align: center"><span id="fig:windowsStartMenu"></span>
+<img src="images/windows_start_menu.png" alt="スタートメニュの中のRStudio" width="95%" />
+<p class="caption">
+Figure 1.1: スタートメニュの中のRStudio
+</p>
+</div>
+</div>
+<div id="section-1" class="section level2">
+<h2><span class="header-section-number">1.2</span> ペインとタブ</h2>
+<p>RStudioを立ち上げて、まずは、RStudioの見た目に慣れましょう。
+大雑把に見て３つの部分に分かれていることが把握できるはずです。
+（図<a href="index.html#fig:rstudiolook001">1.2</a>）
+この区分されている一つ一つの部分を区画や<strong>ペイン</strong>と呼びます。</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudiolook001"></span>
+<img src="images/rstudio_look001.png" alt="ペインで構成されるRStudio" width="80%" />
+<p class="caption">
+Figure 1.2: ペインで構成されるRStudio
+</p>
+</div>
+<p>そして、その各ペインの上部に注目してもらうと、
+どのペインにもタブを見つけることが出来るはずです。（図<a href="index.html#fig:rstudiotab">1.3</a>）
+タブは、それをクリックすることでペインの内容を切り替えることが出来ます。</p>
+<div class="figure" style="text-align: center"><span id="fig:rstudiotab"></span>
+<img src="images/tab_right_upper.png" alt="ペイン上部のtab" width="70%" />
+<p class="caption">
+Figure 1.3: ペイン上部のtab
+</p>
+</div>
+<p>RStudioは、小さな画面の中に沢山の機能が詰め込まれているので、
+タブの文字やその周辺に表示されているアイコン、
+更にはその他の情報の文字が非常に小さくなっています。
+ですから、いつも見ている画面なのに、その存在を意識することがないと、
+それがそこにあることさえ気づかないこともあります。</p>
+<p>まずは、RStudioは、いくつかのペインで構成され、
+各ペインはその内容をタブで切り替えられるということを把握しましょう。</p>
+</div>
+<div id="section-2" class="section level2">
+<h2><span class="header-section-number">1.3</span> コンソール</h2>
+<p>立ち上げたばかりのRStuido（図<a href="index.html#fig:rstudiolook001">1.2</a>）は、左側のペインにコンソールが表示されています。
+タブ名がConsoleになっていることを確認しましょう。</p>
+<p><strong>コンソール</strong>は、ユーザーからのRコマンドを受け付け、それを処理して、結果を表示してくれる場所です。</p>
+<p>起動したばかりのRStudioのコンソールには、
+内部で動いているR処理プログラムのバージョンについて述べられ、
+続いて、ライセンスやRを支える開発貢献者等、
+更に、ヘルプ等を見るためのコマンドの紹介がなされ、
+最後に、Rを終了するためのコマンドが記されています。</p>
+<p>そして、これらメッセージの後ろに “&gt;”（大なり記号） が行頭にぽつんと表示され、
+その右側に “|”（縦棒）が点滅しているのが見て取れるはずです。
+この、“&gt;”の印のことを<strong>プロンプト</strong>といいます。
+そして、“|”の印のことを<strong>カーソル</strong>といいます。</p>
+<p>コンソールでの作業は、まず、プロンプトに対して、コマンドとして意味のある文字列を入力し、
+入力が完了したら、キーボードの<strong>Enterキー</strong>を押して、入力したコマンドをRに処理させます。
+そして、その処理がおわると、Rはコンソール上に何らかの結果を表示し、
+再び、コンソールにはプロンプトが現れ、コマンド入力待ちの状態に戻ります。</p>
+<p>では早速、実践してみましょう。
+プロンプトに対して<code>1 + 2 + 3</code>というコマンドを入力し、実行してください。</p>
+<ol style="list-style-type: decimal">
+<li>コンソールのプロンプトに<code>1 + 2 + 3</code>と書き込む</li>
+<li>Enterキーを押す</li>
+<li>結果をみる</li>
+</ol>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="dv">1</span> <span class="op">+</span><span class="st"> </span><span class="dv">2</span> <span class="op">+</span><span class="st"> </span><span class="dv">3</span></code></pre>
+<pre><code>## [1] 6</code></pre>
+<p>実は、このプロンプトは、 「コマンドの入力を受け付けています」という意味を持っています。</p>
+<p>コマンドを実行して処理をしている最中には、このプロンプトは表示されません。 普段は、あっというまに処理が終わるので、 いつでもプロンプトが表示されているように見えますが、 時間のかかる処理をしている時には、 なかなかプロンプトが表示され無い事もあります。 つまり、コンソールにプロンプトが無い時は、前のコマンドの処理中なので、 次のコマンドを入力するためには、前のコマンドの処理が終わり、 プロンプトが表示されるのを待つ必要があります。</p>
+
+</div>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+
+<a href="02_command.html" class="navigation navigation-next navigation-unique" aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["my_book.pdf", "my_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
