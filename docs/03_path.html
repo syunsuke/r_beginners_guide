@@ -1,0 +1,679 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>3 パス | Rビギナーズガイド</title>
+  <meta name="description" content="3 パス | Rビギナーズガイド" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="3 パス | Rビギナーズガイド" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="3 パス | Rビギナーズガイド" />
+  
+  
+  
+
+<meta name="author" content="Syunsuke Fukuda" />
+
+
+<meta name="date" content="2019-07-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="02_command.html">
+<link rel="next" href="04_package.html">
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Rビギナーズガイド<a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 初めてのRStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.1</b> 何を起動するのか</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i><b>1.2</b> ペインとタブ</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i><b>1.3</b> コンソール</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02_command.html"><a href="02_command.html"><i class="fa fa-check"></i><b>2</b> コンソールとコマンド</a><ul>
+<li class="chapter" data-level="2.1" data-path="02_command.html"><a href="02_command.html#section-4"><i class="fa fa-check"></i><b>2.1</b> コマンド</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="02_command.html"><a href="02_command.html#section-5"><i class="fa fa-check"></i><b>2.1.1</b> 四則演算</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02_command.html"><a href="02_command.html#section-6"><i class="fa fa-check"></i><b>2.1.2</b> 関数</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02_command.html"><a href="02_command.html#section-7"><i class="fa fa-check"></i><b>2.2</b> 履歴機能</a></li>
+<li class="chapter" data-level="2.3" data-path="02_command.html"><a href="02_command.html#section-8"><i class="fa fa-check"></i><b>2.3</b> 補完機能</a></li>
+<li class="chapter" data-level="2.4" data-path="02_command.html"><a href="02_command.html#section-9"><i class="fa fa-check"></i><b>2.4</b> 複数行入力</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="02_command.html"><a href="02_command.html#section-10"><i class="fa fa-check"></i><b>2.4.1</b> 複数行入力と第２プロンプト “+”</a></li>
+<li class="chapter" data-level="2.4.2" data-path="02_command.html"><a href="02_command.html#section-11"><i class="fa fa-check"></i><b>2.4.2</b> 複数行入力のキャンセル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="02_command.html"><a href="02_command.html#section-12"><i class="fa fa-check"></i><b>2.5</b> 変数と代入</a></li>
+<li class="chapter" data-level="2.6" data-path="02_command.html"><a href="02_command.html#section-13"><i class="fa fa-check"></i><b>2.6</b> ベクトル</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="02_command.html"><a href="02_command.html#section-14"><i class="fa fa-check"></i><b>2.6.1</b> ベクトルの作成</a></li>
+<li class="chapter" data-level="2.6.2" data-path="02_command.html"><a href="02_command.html#section-15"><i class="fa fa-check"></i><b>2.6.2</b> データの型とベクトルの性質</a></li>
+<li class="chapter" data-level="2.6.3" data-path="02_command.html"><a href="02_command.html#section-18"><i class="fa fa-check"></i><b>2.6.3</b> ベクトルと要素</a></li>
+<li class="chapter" data-level="2.6.4" data-path="02_command.html"><a href="02_command.html#section-19"><i class="fa fa-check"></i><b>2.6.4</b> ベクトルを使って計算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="02_command.html"><a href="02_command.html#section-20"><i class="fa fa-check"></i><b>2.7</b> データフレーム</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="02_command.html"><a href="02_command.html#view"><i class="fa fa-check"></i><b>2.7.1</b> データをView()でみる</a></li>
+<li class="chapter" data-level="2.7.2" data-path="02_command.html"><a href="02_command.html#section-21"><i class="fa fa-check"></i><b>2.7.2</b> 行と列</a></li>
+<li class="chapter" data-level="2.7.3" data-path="02_command.html"><a href="02_command.html#section-22"><i class="fa fa-check"></i><b>2.7.3</b> 整然データとキーワード</a></li>
+<li class="chapter" data-level="2.7.4" data-path="02_command.html"><a href="02_command.html#section-23"><i class="fa fa-check"></i><b>2.7.4</b> 列の名前と列へのアクセス</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03_path.html"><a href="03_path.html"><i class="fa fa-check"></i><b>3</b> パス</a><ul>
+<li class="chapter" data-level="3.1" data-path="03_path.html"><a href="03_path.html#section-25"><i class="fa fa-check"></i><b>3.1</b> ファイルを扱うために必要不可欠な知識</a></li>
+<li class="chapter" data-level="3.2" data-path="03_path.html"><a href="03_path.html#windows"><i class="fa fa-check"></i><b>3.2</b> Windowsのディレクトリ構成</a></li>
+<li class="chapter" data-level="3.3" data-path="03_path.html"><a href="03_path.html#section-26"><i class="fa fa-check"></i><b>3.3</b> パスの書き方のルール</a></li>
+<li class="chapter" data-level="3.4" data-path="03_path.html"><a href="03_path.html#windows-1"><i class="fa fa-check"></i><b>3.4</b> Windowsのパスの注意点</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="03_path.html"><a href="03_path.html#section-27"><i class="fa fa-check"></i><b>3.4.1</b> ディレクトリを表す記号</a></li>
+<li class="chapter" data-level="3.4.2" data-path="03_path.html"><a href="03_path.html#section-28"><i class="fa fa-check"></i><b>3.4.2</b> ディレクトリ名称</a></li>
+<li class="chapter" data-level="3.4.3" data-path="03_path.html"><a href="03_path.html#section-29"><i class="fa fa-check"></i><b>3.4.3</b> 間違えがちな所</a></li>
+<li class="chapter" data-level="3.4.4" data-path="03_path.html"><a href="03_path.html#section-30"><i class="fa fa-check"></i><b>3.4.4</b> パス入力の実習</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="03_path.html"><a href="03_path.html#section-31"><i class="fa fa-check"></i><b>3.5</b> カレントディレクトリ</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="03_path.html"><a href="03_path.html#section-32"><i class="fa fa-check"></i><b>3.5.1</b> カレントディレクトリとパスの種類</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="03_path.html"><a href="03_path.html#section-33"><i class="fa fa-check"></i><b>3.6</b> カレントディレクトリを意識した作業</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="03_path.html"><a href="03_path.html#section-34"><i class="fa fa-check"></i><b>3.6.1</b> デスクトップでの事前準備</a></li>
+<li class="chapter" data-level="3.6.2" data-path="03_path.html"><a href="03_path.html#section-35"><i class="fa fa-check"></i><b>3.6.2</b> カレントディレクトリの変更</a></li>
+<li class="chapter" data-level="3.6.3" data-path="03_path.html"><a href="03_path.html#section-36"><i class="fa fa-check"></i><b>3.6.3</b> ファイルの読み込み作業</a></li>
+<li class="chapter" data-level="3.6.4" data-path="03_path.html"><a href="03_path.html#section-37"><i class="fa fa-check"></i><b>3.6.4</b> 相対パスと絶対パス</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="03_path.html"><a href="03_path.html#rstduio"><i class="fa fa-check"></i><b>3.7</b> RStduioのプロジェクト</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="03_path.html"><a href="03_path.html#section-38"><i class="fa fa-check"></i><b>3.7.1</b> プロジェクトの作成</a></li>
+<li class="chapter" data-level="3.7.2" data-path="03_path.html"><a href="03_path.html#rstudio-1"><i class="fa fa-check"></i><b>3.7.2</b> RStudioに小さく表示される情報</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04_package.html"><a href="04_package.html"><i class="fa fa-check"></i><b>4</b> パッケージ</a><ul>
+<li class="chapter" data-level="4.1" data-path="04_package.html"><a href="04_package.html#rstudio-2"><i class="fa fa-check"></i><b>4.1</b> RStudioでのパッケージのインストール</a></li>
+<li class="chapter" data-level="4.2" data-path="04_package.html"><a href="04_package.html#section-40"><i class="fa fa-check"></i><b>4.2</b> パッケージの管理</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="04_package.html"><a href="04_package.html#section-41"><i class="fa fa-check"></i><b>4.2.1</b> アップデート</a></li>
+<li class="chapter" data-level="4.2.2" data-path="04_package.html"><a href="04_package.html#section-42"><i class="fa fa-check"></i><b>4.2.2</b> マニュアルをみる</a></li>
+<li class="chapter" data-level="4.2.3" data-path="04_package.html"><a href="04_package.html#section-43"><i class="fa fa-check"></i><b>4.2.3</b> パッケージの読み込みとデタッチ</a></li>
+<li class="chapter" data-level="4.2.4" data-path="04_package.html"><a href="04_package.html#web"><i class="fa fa-check"></i><b>4.2.4</b> パッケージに関するWebサイトをみる</a></li>
+<li class="chapter" data-level="4.2.5" data-path="04_package.html"><a href="04_package.html#section-44"><i class="fa fa-check"></i><b>4.2.5</b> パッケージアンインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="04_package.html"><a href="04_package.html#library"><i class="fa fa-check"></i><b>4.3</b> パッケージを読み込むlibrary()関数</a></li>
+<li class="chapter" data-level="4.4" data-path="04_package.html"><a href="04_package.html#github"><i class="fa fa-check"></i><b>4.4</b> GitHubにあるパッケージのインストール</a></li>
+<li class="chapter" data-level="4.5" data-path="04_package.html"><a href="04_package.html#section-45"><i class="fa fa-check"></i><b>4.5</b> 有名なパッケージ</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="04_package.html"><a href="04_package.html#tidyverse"><i class="fa fa-check"></i><b>4.5.1</b> tidyverse</a></li>
+<li class="chapter" data-level="4.5.2" data-path="04_package.html"><a href="04_package.html#devtools"><i class="fa fa-check"></i><b>4.5.2</b> devtools</a></li>
+<li class="chapter" data-level="4.5.3" data-path="04_package.html"><a href="04_package.html#leaflet"><i class="fa fa-check"></i><b>4.5.3</b> leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05_script.html"><a href="05_script.html"><i class="fa fa-check"></i><b>5</b> 日常作業は、R Notebookで行う</a><ul>
+<li class="chapter" data-level="5.1" data-path="05_script.html"><a href="05_script.html#section-46"><i class="fa fa-check"></i><b>5.1</b> 作業の準備はプロジェクトから</a></li>
+<li class="chapter" data-level="5.2" data-path="05_script.html"><a href="05_script.html#r-notebook-1"><i class="fa fa-check"></i><b>5.2</b> R Notebookを新規作成する</a></li>
+<li class="chapter" data-level="5.3" data-path="05_script.html"><a href="05_script.html#r-notebook-2"><i class="fa fa-check"></i><b>5.3</b> R Notebookの構造</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="05_script.html"><a href="05_script.html#yaml"><i class="fa fa-check"></i><b>5.3.1</b> 設定を行うYAMLヘッダ</a></li>
+<li class="chapter" data-level="5.3.2" data-path="05_script.html"><a href="05_script.html#section-47"><i class="fa fa-check"></i><b>5.3.2</b> コードが実行できる場所、チャンク</a></li>
+<li class="chapter" data-level="5.3.3" data-path="05_script.html"><a href="05_script.html#section-48"><i class="fa fa-check"></i><b>5.3.3</b> それ以外の部分</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="05_script.html"><a href="05_script.html#r-notebook--"><i class="fa fa-check"></i><b>5.4</b> R Notebook と マークダウン</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="05_script.html"><a href="05_script.html#section-49"><i class="fa fa-check"></i><b>5.4.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.4.2" data-path="05_script.html"><a href="05_script.html#section-50"><i class="fa fa-check"></i><b>5.4.2</b> マークダウンの出力ファイル</a></li>
+<li class="chapter" data-level="5.4.3" data-path="05_script.html"><a href="05_script.html#section-51"><i class="fa fa-check"></i><b>5.4.3</b> 出力形式の変更</a></li>
+<li class="chapter" data-level="5.4.4" data-path="05_script.html"><a href="05_script.html#r-notebook-3"><i class="fa fa-check"></i><b>5.4.4</b> R Notebookとして出力するための設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="05_script.html"><a href="05_script.html#r"><i class="fa fa-check"></i><b>5.5</b> マークダウンとRマークダウン</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="05_script.html"><a href="05_script.html#section-52"><i class="fa fa-check"></i><b>5.5.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05_script.html"><a href="05_script.html#r-1"><i class="fa fa-check"></i><b>5.5.2</b> Rマークダウン</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05_script.html"><a href="05_script.html#r-notebook-"><i class="fa fa-check"></i><b>5.6</b> R Notebook とは</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="05_script.html"><a href="05_script.html#section-58"><i class="fa fa-check"></i><b>5.6.1</b> 保存すると、自動で出力される</a></li>
+<li class="chapter" data-level="5.6.2" data-path="05_script.html"><a href="05_script.html#section-59"><i class="fa fa-check"></i><b>5.6.2</b> ファイルを持ち運べる</a></li>
+<li class="chapter" data-level="5.6.3" data-path="05_script.html"><a href="05_script.html#html"><i class="fa fa-check"></i><b>5.6.3</b> 只のhtmlファイルではない</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rビギナーズガイド</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="section-24" class="section level1">
+<h1><span class="header-section-number">3</span> パス</h1>
+<div id="section-25" class="section level2">
+<h2><span class="header-section-number">3.1</span> ファイルを扱うために必要不可欠な知識</h2>
+<p>データ分析の対象となる多くのデータは、<strong>CSVファイル</strong>と呼ばれる形式のファイルとして配布されています。
+そして、RStudioでデータ分析を行うためには、必ず、
+このCSVファイルのような分析の対象となるデータをもっている<strong>ファイルをRに読み込む</strong>必要があります。
+また、Rを使ったより複雑な処理を行う時、その処理をファイルに記述して保存します。
+これら保存された処理は、他の処理からそのファイルを読み込むことで利用したりします。
+このように、Rの処理を行う場合に、ファイルを扱う作業は必須となります。</p>
+<p>ここで、普段使っているWindowsの環境では、何かのファイルを指定する時、
+画面を見て目の前にあるファイルのアイコンにマウスカーソルを持って行き、
+それをクリックするだけで済みます。
+もしくは、何かのアプリのメニューからファイル選択用のダイアログを呼び出し、それを使ってファイルを選択します。
+しかし、コンソール上での作業では、アイコンやメニューやダイアログはありません。
+ファイルの指定もコマンドとして文字を書く事でその作業を行っていきます。
+この時、パソコン上にあるファイルを特定するために必要となるのが<strong>パス</strong>です。</p>
+</div>
+<div id="windows" class="section level2">
+<h2><span class="header-section-number">3.2</span> Windowsのディレクトリ構成</h2>
+<p>Windows上のファイルは、<strong>ドライブ</strong>の中にある<strong>ディレクトリ</strong>の中、若しくは、ディレクトリの中のディレクトリ（又は、そのディレクトリの中のディレクトリの中の、、、、）に存在しています。
+尚、ディレクトリはWindowsではフォルダと呼ばれることもあります。
+普段、デスクトップや自分のドキュメントフォルダ等へ
+データを保存していると思いますが、これらの場所も全て、ドライブから始まるディレクトリ構造の一部になっています。</p>
+<p>Windowsのエクスプローラーを使って実際に見てみましょう。
+PCの中にあるCドライブをエクスプローラーで開いて下さい。（図<a href="03_path.html#fig:directorytree001">3.1</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:directorytree001"></span>
+<img src="images/folder_c001.png" alt="Cドライブのルートディレクトリ" width="90%" />
+<p class="caption">
+Figure 3.1: Cドライブのルートディレクトリ
+</p>
+</div>
+<p>もちろん各人によって内容は異なりますが、最低限、次の様なフォルダが見られるはずです。</p>
+<ul>
+<li>Windows</li>
+<li>Program Files</li>
+<li>Users、若しくは、ユーザー</li>
+</ul>
+<p><strong><code>Windows</code></strong>フォルダは、Windows自体の色々なファイルやフォルダが入っています。
+また、<strong><code>Program Files</code></strong>フォルダの中には、
+あなたのWindowsにインストールされているプログラムの実行ファイル等が入ったフォルダが入っています。
+そして、<strong>ユーザー</strong>フォルダの中には、
+各アカウント名のフォルダが在り、その中を覗くと
+自分がいつもデータを整理しているであろう見慣れたフォルダ名が並んでいると思います。</p>
+<p>少し探索してどんなフォルダの中にどんなフォルダが入っているのか、
+Cドライブからどんな順番であなたのデスクトップやドキュメントフォルダが
+位置しているのか、Windowsのディレクトリ構造の大雑把なイメージを持って下さい。</p>
+</div>
+<div id="section-26" class="section level2">
+<h2><span class="header-section-number">3.3</span> パスの書き方のルール</h2>
+<p>エクスプローラーでディレクトリ構造の探索を行ってみると、
+例えば私（アカウント名shunsk）のデスクトップにあるsample.txtというファイルは、「Cドライブの中のユーザーディレクトリの中のshunskディレクトリの中のデスクトップディレクトリの中のsample.txt」という風に一意に言葉で説明することができることが分かります。そして、これを次のルールに基づいて表現することで、コンソール上で利用できるファイルパスになります。</p>
+<ul>
+<li>先頭をドライブ名（CとかDとか）＋コロンではじめる</li>
+<li>ディレクトリを表すためにディレクトリ名を“/”（スラッシュ）で区切る</li>
+</ul>
+<p>私のデスクトップ上のsample.txtのファイルパスは次のようになります。</p>
+<pre><code>C:/Users/shunsk/Desktop/sample.txt</code></pre>
+<p>もう少し、別の例も見てみましょう。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">パス</th>
+<th align="left">説明</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">C:/Users/shunsk/</td>
+<td align="left">CドライブのUsersディレクトリの中のshunskディレクトリ</td>
+</tr>
+<tr class="even">
+<td align="left">C:/</td>
+<td align="left">Cドライブの直下のディレクトリ</td>
+</tr>
+<tr class="odd">
+<td align="left">D:/data/text/hoge.txt</td>
+<td align="left">Dドライブのdataディレクトリの中のtextディレクトリの中のhoge.txtファイル</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="windows-1" class="section level2">
+<h2><span class="header-section-number">3.4</span> Windowsのパスの注意点</h2>
+<p>ここで、WindowsのパスをRで扱う時の注意点を述べておきます。</p>
+<div id="section-27" class="section level3">
+<h3><span class="header-section-number">3.4.1</span> ディレクトリを表す記号</h3>
+<p>まず、Windowsのシステム上でのパス表記において、
+ディレクトリを表す記号には<strong>円マーク</strong>、若しくは、
+これと同じ文字を意味する<strong>バックスラッシュ</strong>が使われています。
+しかし、Rの文字列においては、バックスラッシュは特別の意味を持つ文字であるため、
+単独でバックスラッシュの文字を使うことが出来ません。
+そこで、Rのコンソール上では、ディレクトリ区切りを表現するためには、
+必ず、<strong>スラッシュ記号</strong>を使います。</p>
+</div>
+<div id="section-28" class="section level3">
+<h3><span class="header-section-number">3.4.2</span> ディレクトリ名称</h3>
+<p>次に、Windowsのディレクトリ名は、エクスプローラーで表示されるものと、
+ファイルシステム上の名称で異なるものがあります。
+上記の例では、エクスプローラーで<strong>ユーザー</strong>や<strong>デスクトップ</strong>と
+日本語で表示されていても、
+システム上のディレクトリ名は、UsersやDesktopとなっている場合があります。
+RStudioでパスを入力する時は、
+補完機能が使えるので真のディレクトリ名をわざわざ調べる必要はありません。
+補完候補の中には、真のディレクトリ名があるので、そこから選択すればよいだけです。</p>
+</div>
+<div id="section-29" class="section level3">
+<h3><span class="header-section-number">3.4.3</span> 間違えがちな所</h3>
+<p>パスの初めは、ドライブ名＋コロンの後に<strong>まずスラッシュが入ります</strong>
+また、コンソール上でのパスは文字列として扱うので、必ず、<strong>引用符で囲みます</strong>。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">正誤</th>
+<th align="left">パス</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">正解</td>
+<td align="left">“C:/Users/”</td>
+</tr>
+<tr class="even">
+<td align="left">間違い</td>
+<td align="left">C:Users</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="section-30" class="section level3">
+<h3><span class="header-section-number">3.4.4</span> パス入力の実習</h3>
+<p>では、デスクトップに<code>sample.txt</code>という空のファイルを作成し、
+このファイルパスを<code>sample_txt_path</code>という変数に代入してください。
+ファイルパスの入力には必ず、補完機能を使います。</p>
+<p>ファイルパス補完のコツは、まず、ドライブのルートディレクトリとして
+<code>"C:/"</code>と書き込み、そのスラッシュの後ろでタブキーを押すと
+ディレクトリ構造に従った補完候補が呼び出せます。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># ファイルパスを補完機能で入力</span>
+sample_txt_path &lt;-<span class="st"> &quot;C:/Users/shunsk/Desktop/sample.txt&quot;</span></code></pre>
+</div>
+</div>
+<div id="section-31" class="section level2">
+<h2><span class="header-section-number">3.5</span> カレントディレクトリ</h2>
+<p>Windowsを使っている場合には、ほとんど意識することがありませんが、
+実は、パソコンの操作をしている時、
+操作をしている人は必ず<strong>どこかの場所(ディレクトリ)にいる</strong>ことになっています。
+そして、その場所を<strong>カレントディレクトリ</strong>（current directory: 現在のディレクトリ）やワーキングディレクトリと呼びます。</p>
+<p>実際に、あなたが今どこにいるのか？あなたのカレントディレクトリを調べてみましょう。
+カレントディレクトリのパスを出力する<code>getwd()</code>関数を実行してください。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># カレントディレクトリを出力するコマンド</span>
+<span class="kw">getwd</span>()</code></pre>
+<pre><code>## [1] &quot;C:/Users/shunsk/Documents/GitHub/r_beginners_guide&quot;</code></pre>
+<p>出力は、実行した人ごとに異なります。</p>
+<p>さて、まずは、この「<strong>カレントディレクトリ</strong>」という単語を覚えて、
+「自分のいるディレクトリ」という概念があるということを意識しましょう。
+また、カレントディレクトリは、コンソール毎にあります。
+複数のRのコンソールを立ち上げている時には、
+そのコンソール毎にカレントディレクトリは独立しています。</p>
+<div id="section-32" class="section level3">
+<h3><span class="header-section-number">3.5.1</span> カレントディレクトリとパスの種類</h3>
+<p>さて、先に説明したパスの表現は以下の様なものでした。</p>
+<p><code>"C:/Users/shunsk/Desktop/sample.txt"</code></p>
+<p>このようにドライブ名から表示したパスの書式を<strong>絶対パス、完全パス、フルパス</strong>等と呼びます。</p>
+<p>これに対して、カレントディレクトリからの相対的な位置で表したパスの書式を<strong>相対パス</strong>といいます。</p>
+<p>例えば、カレントディレクトリ内の<code>csvdata</code>ディレクトリにある
+<code>hoge.txt</code>というファイルなら、
+相対パスでの表現の仕方は、<code>"csvdata/hoge.txt"</code>となります。</p>
+<p>相対パスを表現する文字列の先頭には、
+ドライブ名やディレクトリを意味するスラッシュがなく、
+カレントディレクトリ直下にある
+<strong>ファイル名やディレクトリ名そのものから始まります</strong>。</p>
+<p>表現の仕方をあらためて次にまとめておきます。</p>
+<p>絶対パスで<code>"C:/Users/shunsk/Desktop/sample.txt"</code>となっているファイルについてのカレントディレクトリと相対パスの関係は次の通りです。</p>
+<table>
+<thead>
+<tr class="header">
+<th align="left">カレントディレクトリ</th>
+<th align="left">相対パス</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left">“C:/Users/”</td>
+<td align="left">“shunsk/Desktop/sample.txt”</td>
+</tr>
+<tr class="even">
+<td align="left">“C:/Users/shunsk/”</td>
+<td align="left">“Desktop/sample.txt”</td>
+</tr>
+<tr class="odd">
+<td align="left">“C:/Users/shunsk/Desktop/”</td>
+<td align="left">“sample.txt”</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="section-33" class="section level2">
+<h2><span class="header-section-number">3.6</span> カレントディレクトリを意識した作業</h2>
+<p>みなさんも、普段、パソコンを使って何かの作成作業を行っていると思います。
+その作業では、作業ごとにフォルダを作成し、
+その中にワードファイルやエクセルファイル、
+写真等のイメージファイル、その他のデータファイル等を入れて
+管理しているのではないでしょうか？
+そして、作業をする時はこれらファイルの入っている<strong>フォルダを開き</strong>、
+その中にあるファイルアイコンをダブルクリック等して作業をしていることと思います。</p>
+<p>Rをコンソールで使う場合でも同様です。
+Rの作業をする時に必要となるファイルをフォルダに入れて管理することになります。
+ただ、Rでの作業はコンソールで行うので、視覚的にフォルダを開きませんが、
+代わりに、その<strong>フォルダをカレントディレクトリに設定</strong>して、
+各ファイルへのアクセスを容易にします。</p>
+<p>ここから、カレントディレクトリを意識して、
+実際のRでの作業を始めるための準備を体験してもらいます。</p>
+<div id="section-34" class="section level3">
+<h3><span class="header-section-number">3.6.1</span> デスクトップでの事前準備</h3>
+<p>まず、デスクトップに<strong><code>r_work</code></strong>というフォルダを作って下さい。
+次に、作業対象となるCSVファイルを用意します。
+適切な整然データのcsvファイルの例として、次のwebページから国土交通省が発表している不動産取引価格情報データのCSVファイルを入手できます。適当なcsvファイルを入手してください。
+（手元に適切なデータがある場合は、それを使っても結構です。）</p>
+<p><a href="http://www.land.mlit.go.jp/webland/download.html">http://www.land.mlit.go.jp/webland/download.html</a></p>
+<p>準備したcsvファイルをr_workディレクトリの中にコピーし、
+コピーしたファイル名は<strong><code>my_data.csv</code>というファイル名に変更</strong>しておいてください。</p>
+</div>
+<div id="section-35" class="section level3">
+<h3><span class="header-section-number">3.6.2</span> カレントディレクトリの変更</h3>
+<p>デスクトップ上での準備が完了したら、
+RStudioのコンソールのカレントディレクトリを
+今、作成した<code>r_work</code>フォルダに変更する作業を行います。</p>
+<p>カレントディレクトリの変更は、<code>setwd()</code>関数を使います。
+<code>setwd()</code>関数には、
+カレントディレクトリにしたいディレクトリのパスの文字列を引数として渡して使います。
+各自のデスクトップへのパスはアカウント名が異なるため下の例とは異なるので、コピーアンドペーストでは失敗します。
+必ず、補完機能を使って各自のデスクトップ上の<code>r_work</code>ディレクトリへのパスを入力しましょう。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># デスクトップのr_workディレクトリをカレントディレクトリにする。</span>
+<span class="kw">setwd</span>(<span class="st">&quot;c:/Users/shunsk/Desktop/r_work/&quot;</span>)</code></pre>
+</div>
+<div id="section-36" class="section level3">
+<h3><span class="header-section-number">3.6.3</span> ファイルの読み込み作業</h3>
+<p>整然データとしてのcsvファイルを読み込む関数の一つに
+<code>read.csv()</code>関数があります。
+この関数は、読み込みたいファイルのファイルパスを引数として取ります。
+さて、この引数として渡すファイルパスは、上記で勉強した通り、
+絶対パスと相対パスの両方で書けます。</p>
+<p>まず、相対パスでデータを読み込んでみましょう。
+読み込んだデータを保持するために、<code>data_a</code>という変数に代入してください。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 相対パスを使ってファイルを読み込む</span>
+data_a &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;my_data.csv&quot;</span>)</code></pre>
+<p>このように、カレントディレクトリを適切に設定すると
+ファイル読み込みを指示するコマンドのタイピング量は減り、
+作業が便利になるように思えます。</p>
+<p>では、作業をする時には、いつでも相対パスで指示すればよいのでしょうか？</p>
+</div>
+<div id="section-37" class="section level3">
+<h3><span class="header-section-number">3.6.4</span> 相対パスと絶対パス</h3>
+<p>相対パスを使うには、前述の通り前提条件が必要です。
+上記の作業では、ファイルを読み込む前に、カレントディレクトリの変更を行い、
+カレントディレクトリが<code>my_data.csv</code>を入れている<code>r_work</code>になっていることが
+<strong>確実な状態</strong>です。</p>
+<p>この様に、カレントディレクトリと対象となるファイルの
+<strong>相対的位置関係をきちんと把握できている</strong>場合、
+相対パスでファイルを正しく指定することが出来ます。
+逆を言えば、カレントディレクトリが分からなければ、
+相対パスでパスの指定をすることは出来ません。</p>
+<p>次に、絶対パスでデータを読み込んでみましょう。
+今度は、<code>data_b</code>という変数に代入します。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="co"># 絶対パスを使ってファイルを読み込む</span>
+data_b &lt;-<span class="st"> </span><span class="kw">read.csv</span>(<span class="st">&quot;c:/Users/shunsk/Desktop/r_work/my_data.csv&quot;</span>)</code></pre>
+<p>絶対パスは、今使っているパソコン上のファイルの場所を一意に表しています。
+ですから、カレントディレクトリが何処であったとしても、
+正しくファイルの場所を指定することが出来ます。</p>
+<p>上記の様にファイルの読み込み作業において、
+絶対パスと相対パスの両方のコードで実践してみました。
+この両パス表記は、どちらかが優れているというものではなく、
+それぞれ、その性質に応じた使い方をします。
+そして、どちらの表記であっても、
+自分で読み書きできる必要があります。</p>
+<p>まず、絶対パスを使う時は、
+現在のカレントディレクトリを気にせず、
+ダイレクトにパスを指定したい場合です。
+例えば、カレントディレクトリのすぐ近くのディレクトリに
+カレントディレクトリを移動させたい場合には、
+相対的な関係を直感的に把握できますが、
+構造的に離れたディレクトリへ移動する時には、
+ディレクトリルートから辿る方が簡単です。</p>
+<p>次に、絶対パスが使えない場合があることを把握しましょう。
+それは、絶対パスの入ったコードは他人の環境で動かないという事です。
+前述しましたが、私のデスクトップ上のファイルへの絶対パスは、
+あなたのデスクトップ上のファイルへの絶対パスになりません。
+ですから、絶対パスを使ったコードを
+あなたがコピー＆ペーストして実行してもうまく動きません。</p>
+<p>一方、他人とコードを共有する場合、
+若しくは、自分のパソコンの中であっても、
+そのコードの置き場所を何処にでも移動できるようにする場合、
+パス表記全てをベースとなるディレクトリからの相対表記にしておき、
+作業の時に、カレントディレクトリをそのベースディレクトリに設定することで、
+ベースディレクトリの絶対パスが何処であっても、相対パスの表記は文字通り同じになります。
+つまり、あなたが、適切なカレントディレクトリさえ設定すれば、
+私の相対パスで書かれたコードをコピー＆ペーストするだけで、
+あなたのパソコンでもそのコードが動くようになります。</p>
+<p>以上のパスに関する基礎的な知識を把握していれば、
+Rの教科書でのファイルの読み込み作業で失敗することは無くなります。</p>
+</div>
+</div>
+<div id="rstduio" class="section level2">
+<h2><span class="header-section-number">3.7</span> RStduioのプロジェクト</h2>
+<p>先ほどは、コマンドを使ってカレントディレクトリを変更することを覚えましたが、
+Rで作業をする毎にわざわざカレントディレクトリを設定するのは面倒です。
+そこで、RStudioは、このような煩雑な作業をしなくてすむように、
+<strong>プロジェクト</strong>という機能を備えています。</p>
+<p>RStudioでは、作業ディレクトリ毎にRStudioのプロジェクトファイルを作成しておきます。
+そうすることで、そのプロジェクトファイルを開くだけで、
+そのディレクトリがカレントディレクトリであるコンソールが開くようになります。
+また、別のプロジェクトファイルを開くと、
+その別の作業用のディレクトリをカレントディレクトリとする別のコンソールが開きます。
+このように、RStudioでは、作業ディレクトリ毎のコンソールを別々に開いて複数の作業を同時に行う事が簡単にできます。</p>
+<div id="section-38" class="section level3">
+<h3><span class="header-section-number">3.7.1</span> プロジェクトの作成</h3>
+<p>では、早速プロジェクトを作成しましょう。
+RStudioを立ち上げ、メニューのFileからNew Projectを選択します。<a href="#fn1" class="footnote-ref" id="fnref1"><sup>1</sup></a>
+そうすると、プロジェクト作成ダイアログが表示されます。（図<a href="03_path.html#fig:project001">3.2</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:project001"></span>
+<img src="images/newproject_dl.png" alt="プロジェクト作成ダイアログ" width="70%" />
+<p class="caption">
+Figure 3.2: プロジェクト作成ダイアログ
+</p>
+</div>
+<p>ここでは、選択肢が３つありますが、
+今回は、一番手軽にプロジェクトを作成できる２番目の方法
+「既に存在する作業フォルダをプロジェクトにする(Existing Directory)」を
+紹介します。
+この２番の方法さえ覚えておけば、新規にフォルダを作ってプロジェクトにする時も、
+自分で新しいフォルダを先に作りさえすれば、この２番の方法を使って同じようにプロジェクトを作成することが出来ます。</p>
+<p>では、ダイアログの<code>Existing Directory</code>の部分をクリックして下さい。
+ダイアログが切り替わるので、ディレクトリ選択ダイアログ（Browseボタンから）等を使って、
+プロジェクトにしたい既存のディレクトリのパスを指定します。
+ここでは、先に作成したデスクトップ上にある<code>r_work</code>のパスを指定して下さい。
+パスの指定が出来たら、
+ダイアログ右下の<code>Create Project</code>ボタンをクリックすると
+プロジェクトの作成作業は完了です。
+そのまま、デスクトップの<code>r_work</code>ディレクトリを
+カレントディレクトリとしたRStudioのコンソールが開きますが、
+ここで、一旦、RStudioを終了しましょう。
+右上の×ボタン等を使って終了して下さい。</p>
+<p>さて、今までRStudioの起動は、Windowsのスタートメニューから行っていたと思います。
+しかし、これからの作業はRStudioのプロジェクトファイルから起動することが出来ます。
+デスクトップの<code>r_work</code>フォルダを開いて下さい。
+ファイル名の拡張子が<code>.Rproj</code>となっていて、
+Rの文字がついたアイコンのファイルが新たに作られているはずです。
+これが、RStudioのプロジェクトファイルです。（図<a href="03_path.html#fig:project002">3.3</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:project002"></span>
+<img src="images/projecto002.png" alt="プロジェクトファイル" width="70%" />
+<p class="caption">
+Figure 3.3: プロジェクトファイル
+</p>
+</div>
+<p>このディレクトリでの作業を開始する時には、
+このプロジェクトファイルをダブルクリックする事で、
+そのディレクトリをカレントディレクトリとしたコンソールを持つ
+RStudioを起動することが出来ます。</p>
+</div>
+<div id="rstudio-1" class="section level3">
+<h3><span class="header-section-number">3.7.2</span> RStudioに小さく表示される情報</h3>
+<p>RStudioはプロジェクトごとに立ち上げることが出来ると述べましたが、
+複数のRStuidoが立ち上がると、
+どのRStudioがどのプロジェクトが見わけがつかなくなるかもしれません。</p>
+<p>そんな時、右上ペインのその右上をよく見てください。
+その他、カレントディレクトリを知るために<code>getwd()</code>関数を使っていましたが、
+コンソールの上部、Consoleとタブに書かれているところのすぐ下をよく見てください。
+RStudioには、小さなところにいろんな情報が隠れています。</p>
+
+</div>
+</div>
+</div>
+<div class="footnotes">
+<hr />
+<ol start="1">
+<li id="fn1"><p>既にコンソールで何かの作業をしていると、作業中の変数等の状況を保存しておくかどうかの確認ダイアログが出ますが、
+特に必要が無い限り作業は保存しませんので、<code>Don't Save</code>ボタンをクリックすればＯＫです。<a href="03_path.html#fnref1" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="02_command.html" class="navigation navigation-prev " aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+<a href="04_package.html" class="navigation navigation-next " aria-label="Next page"><i class="fa fa-angle-right"></i></a>
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["my_book.pdf", "my_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>

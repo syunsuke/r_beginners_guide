@@ -1,0 +1,786 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <title>5 日常作業は、R Notebookで行う | Rビギナーズガイド</title>
+  <meta name="description" content="5 日常作業は、R Notebookで行う | Rビギナーズガイド" />
+  <meta name="generator" content="bookdown 0.11 and GitBook 2.6.7" />
+
+  <meta property="og:title" content="5 日常作業は、R Notebookで行う | Rビギナーズガイド" />
+  <meta property="og:type" content="book" />
+  
+  
+  
+  
+
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:title" content="5 日常作業は、R Notebookで行う | Rビギナーズガイド" />
+  
+  
+  
+
+<meta name="author" content="Syunsuke Fukuda" />
+
+
+<meta name="date" content="2019-07-13" />
+
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+  
+  
+<link rel="prev" href="04_package.html">
+
+<script src="libs/jquery-2.2.3/jquery.min.js"></script>
+<link href="libs/gitbook-2.6.7/css/style.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-table.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-bookdown.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-highlight.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-search.css" rel="stylesheet" />
+<link href="libs/gitbook-2.6.7/css/plugin-fontsettings.css" rel="stylesheet" />
+
+
+
+
+
+
+
+
+
+<style type="text/css">
+a.sourceLine { display: inline-block; line-height: 1.25; }
+a.sourceLine { pointer-events: none; color: inherit; text-decoration: inherit; }
+a.sourceLine:empty { height: 1.2em; }
+.sourceCode { overflow: visible; }
+code.sourceCode { white-space: pre; position: relative; }
+div.sourceCode { margin: 1em 0; }
+pre.sourceCode { margin: 0; }
+@media screen {
+div.sourceCode { overflow: auto; }
+}
+@media print {
+code.sourceCode { white-space: pre-wrap; }
+a.sourceLine { text-indent: -1em; padding-left: 1em; }
+}
+pre.numberSource a.sourceLine
+  { position: relative; left: -4em; }
+pre.numberSource a.sourceLine::before
+  { content: attr(title);
+    position: relative; left: -1em; text-align: right; vertical-align: baseline;
+    border: none; pointer-events: all; display: inline-block;
+    -webkit-touch-callout: none; -webkit-user-select: none;
+    -khtml-user-select: none; -moz-user-select: none;
+    -ms-user-select: none; user-select: none;
+    padding: 0 4px; width: 4em;
+    color: #aaaaaa;
+  }
+pre.numberSource { margin-left: 3em; border-left: 1px solid #aaaaaa;  padding-left: 4px; }
+div.sourceCode
+  {  }
+@media screen {
+a.sourceLine::before { text-decoration: underline; }
+}
+code span.al { color: #ff0000; font-weight: bold; } /* Alert */
+code span.an { color: #60a0b0; font-weight: bold; font-style: italic; } /* Annotation */
+code span.at { color: #7d9029; } /* Attribute */
+code span.bn { color: #40a070; } /* BaseN */
+code span.bu { } /* BuiltIn */
+code span.cf { color: #007020; font-weight: bold; } /* ControlFlow */
+code span.ch { color: #4070a0; } /* Char */
+code span.cn { color: #880000; } /* Constant */
+code span.co { color: #60a0b0; font-style: italic; } /* Comment */
+code span.cv { color: #60a0b0; font-weight: bold; font-style: italic; } /* CommentVar */
+code span.do { color: #ba2121; font-style: italic; } /* Documentation */
+code span.dt { color: #902000; } /* DataType */
+code span.dv { color: #40a070; } /* DecVal */
+code span.er { color: #ff0000; font-weight: bold; } /* Error */
+code span.ex { } /* Extension */
+code span.fl { color: #40a070; } /* Float */
+code span.fu { color: #06287e; } /* Function */
+code span.im { } /* Import */
+code span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Information */
+code span.kw { color: #007020; font-weight: bold; } /* Keyword */
+code span.op { color: #666666; } /* Operator */
+code span.ot { color: #007020; } /* Other */
+code span.pp { color: #bc7a00; } /* Preprocessor */
+code span.sc { color: #4070a0; } /* SpecialChar */
+code span.ss { color: #bb6688; } /* SpecialString */
+code span.st { color: #4070a0; } /* String */
+code span.va { color: #19177c; } /* Variable */
+code span.vs { color: #4070a0; } /* VerbatimString */
+code span.wa { color: #60a0b0; font-weight: bold; font-style: italic; } /* Warning */
+</style>
+
+</head>
+
+<body>
+
+
+
+  <div class="book without-animation with-summary font-size-2 font-family-1" data-basepath=".">
+
+    <div class="book-summary">
+      <nav role="navigation">
+
+<ul class="summary">
+<li><a href="./">Rビギナーズガイド<a></li>
+
+<li class="divider"></li>
+<li class="chapter" data-level="1" data-path="index.html"><a href="index.html"><i class="fa fa-check"></i><b>1</b> 初めてのRStudio</a><ul>
+<li class="chapter" data-level="1.1" data-path="index.html"><a href="index.html#section"><i class="fa fa-check"></i><b>1.1</b> 何を起動するのか</a></li>
+<li class="chapter" data-level="1.2" data-path="index.html"><a href="index.html#section-1"><i class="fa fa-check"></i><b>1.2</b> ペインとタブ</a></li>
+<li class="chapter" data-level="1.3" data-path="index.html"><a href="index.html#section-2"><i class="fa fa-check"></i><b>1.3</b> コンソール</a></li>
+</ul></li>
+<li class="chapter" data-level="2" data-path="02_command.html"><a href="02_command.html"><i class="fa fa-check"></i><b>2</b> コンソールとコマンド</a><ul>
+<li class="chapter" data-level="2.1" data-path="02_command.html"><a href="02_command.html#section-4"><i class="fa fa-check"></i><b>2.1</b> コマンド</a><ul>
+<li class="chapter" data-level="2.1.1" data-path="02_command.html"><a href="02_command.html#section-5"><i class="fa fa-check"></i><b>2.1.1</b> 四則演算</a></li>
+<li class="chapter" data-level="2.1.2" data-path="02_command.html"><a href="02_command.html#section-6"><i class="fa fa-check"></i><b>2.1.2</b> 関数</a></li>
+</ul></li>
+<li class="chapter" data-level="2.2" data-path="02_command.html"><a href="02_command.html#section-7"><i class="fa fa-check"></i><b>2.2</b> 履歴機能</a></li>
+<li class="chapter" data-level="2.3" data-path="02_command.html"><a href="02_command.html#section-8"><i class="fa fa-check"></i><b>2.3</b> 補完機能</a></li>
+<li class="chapter" data-level="2.4" data-path="02_command.html"><a href="02_command.html#section-9"><i class="fa fa-check"></i><b>2.4</b> 複数行入力</a><ul>
+<li class="chapter" data-level="2.4.1" data-path="02_command.html"><a href="02_command.html#section-10"><i class="fa fa-check"></i><b>2.4.1</b> 複数行入力と第２プロンプト “+”</a></li>
+<li class="chapter" data-level="2.4.2" data-path="02_command.html"><a href="02_command.html#section-11"><i class="fa fa-check"></i><b>2.4.2</b> 複数行入力のキャンセル</a></li>
+</ul></li>
+<li class="chapter" data-level="2.5" data-path="02_command.html"><a href="02_command.html#section-12"><i class="fa fa-check"></i><b>2.5</b> 変数と代入</a></li>
+<li class="chapter" data-level="2.6" data-path="02_command.html"><a href="02_command.html#section-13"><i class="fa fa-check"></i><b>2.6</b> ベクトル</a><ul>
+<li class="chapter" data-level="2.6.1" data-path="02_command.html"><a href="02_command.html#section-14"><i class="fa fa-check"></i><b>2.6.1</b> ベクトルの作成</a></li>
+<li class="chapter" data-level="2.6.2" data-path="02_command.html"><a href="02_command.html#section-15"><i class="fa fa-check"></i><b>2.6.2</b> データの型とベクトルの性質</a></li>
+<li class="chapter" data-level="2.6.3" data-path="02_command.html"><a href="02_command.html#section-18"><i class="fa fa-check"></i><b>2.6.3</b> ベクトルと要素</a></li>
+<li class="chapter" data-level="2.6.4" data-path="02_command.html"><a href="02_command.html#section-19"><i class="fa fa-check"></i><b>2.6.4</b> ベクトルを使って計算</a></li>
+</ul></li>
+<li class="chapter" data-level="2.7" data-path="02_command.html"><a href="02_command.html#section-20"><i class="fa fa-check"></i><b>2.7</b> データフレーム</a><ul>
+<li class="chapter" data-level="2.7.1" data-path="02_command.html"><a href="02_command.html#view"><i class="fa fa-check"></i><b>2.7.1</b> データをView()でみる</a></li>
+<li class="chapter" data-level="2.7.2" data-path="02_command.html"><a href="02_command.html#section-21"><i class="fa fa-check"></i><b>2.7.2</b> 行と列</a></li>
+<li class="chapter" data-level="2.7.3" data-path="02_command.html"><a href="02_command.html#section-22"><i class="fa fa-check"></i><b>2.7.3</b> 整然データとキーワード</a></li>
+<li class="chapter" data-level="2.7.4" data-path="02_command.html"><a href="02_command.html#section-23"><i class="fa fa-check"></i><b>2.7.4</b> 列の名前と列へのアクセス</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="3" data-path="03_path.html"><a href="03_path.html"><i class="fa fa-check"></i><b>3</b> パス</a><ul>
+<li class="chapter" data-level="3.1" data-path="03_path.html"><a href="03_path.html#section-25"><i class="fa fa-check"></i><b>3.1</b> ファイルを扱うために必要不可欠な知識</a></li>
+<li class="chapter" data-level="3.2" data-path="03_path.html"><a href="03_path.html#windows"><i class="fa fa-check"></i><b>3.2</b> Windowsのディレクトリ構成</a></li>
+<li class="chapter" data-level="3.3" data-path="03_path.html"><a href="03_path.html#section-26"><i class="fa fa-check"></i><b>3.3</b> パスの書き方のルール</a></li>
+<li class="chapter" data-level="3.4" data-path="03_path.html"><a href="03_path.html#windows-1"><i class="fa fa-check"></i><b>3.4</b> Windowsのパスの注意点</a><ul>
+<li class="chapter" data-level="3.4.1" data-path="03_path.html"><a href="03_path.html#section-27"><i class="fa fa-check"></i><b>3.4.1</b> ディレクトリを表す記号</a></li>
+<li class="chapter" data-level="3.4.2" data-path="03_path.html"><a href="03_path.html#section-28"><i class="fa fa-check"></i><b>3.4.2</b> ディレクトリ名称</a></li>
+<li class="chapter" data-level="3.4.3" data-path="03_path.html"><a href="03_path.html#section-29"><i class="fa fa-check"></i><b>3.4.3</b> 間違えがちな所</a></li>
+<li class="chapter" data-level="3.4.4" data-path="03_path.html"><a href="03_path.html#section-30"><i class="fa fa-check"></i><b>3.4.4</b> パス入力の実習</a></li>
+</ul></li>
+<li class="chapter" data-level="3.5" data-path="03_path.html"><a href="03_path.html#section-31"><i class="fa fa-check"></i><b>3.5</b> カレントディレクトリ</a><ul>
+<li class="chapter" data-level="3.5.1" data-path="03_path.html"><a href="03_path.html#section-32"><i class="fa fa-check"></i><b>3.5.1</b> カレントディレクトリとパスの種類</a></li>
+</ul></li>
+<li class="chapter" data-level="3.6" data-path="03_path.html"><a href="03_path.html#section-33"><i class="fa fa-check"></i><b>3.6</b> カレントディレクトリを意識した作業</a><ul>
+<li class="chapter" data-level="3.6.1" data-path="03_path.html"><a href="03_path.html#section-34"><i class="fa fa-check"></i><b>3.6.1</b> デスクトップでの事前準備</a></li>
+<li class="chapter" data-level="3.6.2" data-path="03_path.html"><a href="03_path.html#section-35"><i class="fa fa-check"></i><b>3.6.2</b> カレントディレクトリの変更</a></li>
+<li class="chapter" data-level="3.6.3" data-path="03_path.html"><a href="03_path.html#section-36"><i class="fa fa-check"></i><b>3.6.3</b> ファイルの読み込み作業</a></li>
+<li class="chapter" data-level="3.6.4" data-path="03_path.html"><a href="03_path.html#section-37"><i class="fa fa-check"></i><b>3.6.4</b> 相対パスと絶対パス</a></li>
+</ul></li>
+<li class="chapter" data-level="3.7" data-path="03_path.html"><a href="03_path.html#rstduio"><i class="fa fa-check"></i><b>3.7</b> RStduioのプロジェクト</a><ul>
+<li class="chapter" data-level="3.7.1" data-path="03_path.html"><a href="03_path.html#section-38"><i class="fa fa-check"></i><b>3.7.1</b> プロジェクトの作成</a></li>
+<li class="chapter" data-level="3.7.2" data-path="03_path.html"><a href="03_path.html#rstudio-1"><i class="fa fa-check"></i><b>3.7.2</b> RStudioに小さく表示される情報</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="4" data-path="04_package.html"><a href="04_package.html"><i class="fa fa-check"></i><b>4</b> パッケージ</a><ul>
+<li class="chapter" data-level="4.1" data-path="04_package.html"><a href="04_package.html#rstudio-2"><i class="fa fa-check"></i><b>4.1</b> RStudioでのパッケージのインストール</a></li>
+<li class="chapter" data-level="4.2" data-path="04_package.html"><a href="04_package.html#section-40"><i class="fa fa-check"></i><b>4.2</b> パッケージの管理</a><ul>
+<li class="chapter" data-level="4.2.1" data-path="04_package.html"><a href="04_package.html#section-41"><i class="fa fa-check"></i><b>4.2.1</b> アップデート</a></li>
+<li class="chapter" data-level="4.2.2" data-path="04_package.html"><a href="04_package.html#section-42"><i class="fa fa-check"></i><b>4.2.2</b> マニュアルをみる</a></li>
+<li class="chapter" data-level="4.2.3" data-path="04_package.html"><a href="04_package.html#section-43"><i class="fa fa-check"></i><b>4.2.3</b> パッケージの読み込みとデタッチ</a></li>
+<li class="chapter" data-level="4.2.4" data-path="04_package.html"><a href="04_package.html#web"><i class="fa fa-check"></i><b>4.2.4</b> パッケージに関するWebサイトをみる</a></li>
+<li class="chapter" data-level="4.2.5" data-path="04_package.html"><a href="04_package.html#section-44"><i class="fa fa-check"></i><b>4.2.5</b> パッケージアンインストール</a></li>
+</ul></li>
+<li class="chapter" data-level="4.3" data-path="04_package.html"><a href="04_package.html#library"><i class="fa fa-check"></i><b>4.3</b> パッケージを読み込むlibrary()関数</a></li>
+<li class="chapter" data-level="4.4" data-path="04_package.html"><a href="04_package.html#github"><i class="fa fa-check"></i><b>4.4</b> GitHubにあるパッケージのインストール</a></li>
+<li class="chapter" data-level="4.5" data-path="04_package.html"><a href="04_package.html#section-45"><i class="fa fa-check"></i><b>4.5</b> 有名なパッケージ</a><ul>
+<li class="chapter" data-level="4.5.1" data-path="04_package.html"><a href="04_package.html#tidyverse"><i class="fa fa-check"></i><b>4.5.1</b> tidyverse</a></li>
+<li class="chapter" data-level="4.5.2" data-path="04_package.html"><a href="04_package.html#devtools"><i class="fa fa-check"></i><b>4.5.2</b> devtools</a></li>
+<li class="chapter" data-level="4.5.3" data-path="04_package.html"><a href="04_package.html#leaflet"><i class="fa fa-check"></i><b>4.5.3</b> leaflet</a></li>
+</ul></li>
+</ul></li>
+<li class="chapter" data-level="5" data-path="05_script.html"><a href="05_script.html"><i class="fa fa-check"></i><b>5</b> 日常作業は、R Notebookで行う</a><ul>
+<li class="chapter" data-level="5.1" data-path="05_script.html"><a href="05_script.html#section-46"><i class="fa fa-check"></i><b>5.1</b> 作業の準備はプロジェクトから</a></li>
+<li class="chapter" data-level="5.2" data-path="05_script.html"><a href="05_script.html#r-notebook-1"><i class="fa fa-check"></i><b>5.2</b> R Notebookを新規作成する</a></li>
+<li class="chapter" data-level="5.3" data-path="05_script.html"><a href="05_script.html#r-notebook-2"><i class="fa fa-check"></i><b>5.3</b> R Notebookの構造</a><ul>
+<li class="chapter" data-level="5.3.1" data-path="05_script.html"><a href="05_script.html#yaml"><i class="fa fa-check"></i><b>5.3.1</b> 設定を行うYAMLヘッダ</a></li>
+<li class="chapter" data-level="5.3.2" data-path="05_script.html"><a href="05_script.html#section-47"><i class="fa fa-check"></i><b>5.3.2</b> コードが実行できる場所、チャンク</a></li>
+<li class="chapter" data-level="5.3.3" data-path="05_script.html"><a href="05_script.html#section-48"><i class="fa fa-check"></i><b>5.3.3</b> それ以外の部分</a></li>
+</ul></li>
+<li class="chapter" data-level="5.4" data-path="05_script.html"><a href="05_script.html#r-notebook--"><i class="fa fa-check"></i><b>5.4</b> R Notebook と マークダウン</a><ul>
+<li class="chapter" data-level="5.4.1" data-path="05_script.html"><a href="05_script.html#section-49"><i class="fa fa-check"></i><b>5.4.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.4.2" data-path="05_script.html"><a href="05_script.html#section-50"><i class="fa fa-check"></i><b>5.4.2</b> マークダウンの出力ファイル</a></li>
+<li class="chapter" data-level="5.4.3" data-path="05_script.html"><a href="05_script.html#section-51"><i class="fa fa-check"></i><b>5.4.3</b> 出力形式の変更</a></li>
+<li class="chapter" data-level="5.4.4" data-path="05_script.html"><a href="05_script.html#r-notebook-3"><i class="fa fa-check"></i><b>5.4.4</b> R Notebookとして出力するための設定</a></li>
+</ul></li>
+<li class="chapter" data-level="5.5" data-path="05_script.html"><a href="05_script.html#r"><i class="fa fa-check"></i><b>5.5</b> マークダウンとRマークダウン</a><ul>
+<li class="chapter" data-level="5.5.1" data-path="05_script.html"><a href="05_script.html#section-52"><i class="fa fa-check"></i><b>5.5.1</b> マークダウン</a></li>
+<li class="chapter" data-level="5.5.2" data-path="05_script.html"><a href="05_script.html#r-1"><i class="fa fa-check"></i><b>5.5.2</b> Rマークダウン</a></li>
+</ul></li>
+<li class="chapter" data-level="5.6" data-path="05_script.html"><a href="05_script.html#r-notebook-"><i class="fa fa-check"></i><b>5.6</b> R Notebook とは</a><ul>
+<li class="chapter" data-level="5.6.1" data-path="05_script.html"><a href="05_script.html#section-58"><i class="fa fa-check"></i><b>5.6.1</b> 保存すると、自動で出力される</a></li>
+<li class="chapter" data-level="5.6.2" data-path="05_script.html"><a href="05_script.html#section-59"><i class="fa fa-check"></i><b>5.6.2</b> ファイルを持ち運べる</a></li>
+<li class="chapter" data-level="5.6.3" data-path="05_script.html"><a href="05_script.html#html"><i class="fa fa-check"></i><b>5.6.3</b> 只のhtmlファイルではない</a></li>
+</ul></li>
+</ul></li>
+<li class="divider"></li>
+<li><a href="https://github.com/rstudio/bookdown" target="blank">Published with bookdown</a></li>
+
+</ul>
+
+      </nav>
+    </div>
+
+    <div class="book-body">
+      <div class="body-inner">
+        <div class="book-header" role="navigation">
+          <h1>
+            <i class="fa fa-circle-o-notch fa-spin"></i><a href="./">Rビギナーズガイド</a>
+          </h1>
+        </div>
+
+        <div class="page-wrapper" tabindex="-1" role="main">
+          <div class="page-inner">
+
+            <section class="normal" id="section-">
+<div id="r-notebook" class="section level1">
+<h1><span class="header-section-number">5</span> 日常作業は、R Notebookで行う</h1>
+<p>実際のRによるデータ作業では、
+その分析作業の流れ自体にも意味があり、
+それらを一つ一つを形として残すことによって
+作業の意味が分かり易くなります。</p>
+<p>いままで、Rの作業はコンソールのプロンプトにコマンドを
+入力し実行することで行うと説明してきました。
+確かに、一つ一つのコマンド実行と、
+その結果を見た上で、次のコマンドを何にするか決めて実行するという
+インタラクティブな操作は行えます。
+しかし、全体的な流れを俯瞰したり、
+後からまとめて把握して検討したりというということには適していません。
+また、全体をみて検討するだけならば、
+一般的に、<strong>スクリプト</strong>を書く事によって、
+複数コマンドを作業の流れの通りに記載し、
+一気に実行する方法もありますが、この場合、
+インタラクティブな操作ではありません。</p>
+<p>そこで、Rの様にインタラクティブなデータ作業に適しているのが、<strong>R Notebook</strong> です。
+この<strong>ノート</strong>というものを聞いたことが無い人がイメージするなら、
+マイクロソフトのワードの文章を作っていて、
+計算部分のみエクセルを埋め込んで実行できるようにしてあるという感じのものです。
+また、その成果を保存したノートファイルは、RStudioやRの処理系が無くても
+見ることのできるhtml形式のようなファイルなので便利に扱えます。</p>
+<div id="section-46" class="section level2">
+<h2><span class="header-section-number">5.1</span> 作業の準備はプロジェクトから</h2>
+<p>RStudioで作業する場合、作業用のフォルダを用意して、
+そこにプロジェクトを作る癖を付けましょう。
+ノート等を扱う場合、作業の成果をファイルとして保存することになりますし、
+データ分析作業は、取り込み用のCSVファイルを管理する事も多く、
+ファイル読み込み等、ファイル間の位置関係に気を配る必要が多くあります。
+そこで、コード内ではファイルパスとして相対パスを使えるように、
+関連するファイルを同じディレクトリ内で管理することが重要になります。</p>
+<p>では、新しいフォルダを用意してプロジェクトを作り、
+そのプロジェクトでRStudioを開いてください。</p>
+</div>
+<div id="r-notebook-1" class="section level2">
+<h2><span class="header-section-number">5.2</span> R Notebookを新規作成する</h2>
+<p>RStudioのメニューから、File &gt; New File &gt; R Notebook と辿って選択して下さい。
+RStudioの左側が一つのペインになったはずです。（図<a href="05_script.html#fig:rnote001">5.1</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:rnote001"></span>
+<img src="images/rnote001.png" alt="R Notebookを新規作成" width="80%" />
+<p class="caption">
+Figure 5.1: R Notebookを新規作成
+</p>
+</div>
+<p>但し、よく見ると、一番下にConsoleのペインが
+小さく縮んでいるのが分かります。
+各ペインの右上にある二つのアイコンを操作することによって、
+各ペインは伸び縮させることができます。
+ですから、コンソールが必要になったときは、それらアイコンを使ってConsoleペインを復元すればOKです。</p>
+<p>この今、新しく開いたペインが R Notebook の編集領域です。
+この部分はメモ帳と同じでカーソルを好きな所に動かして、
+なんでも好きな事を書くことが出来ます。</p>
+<p>英語がたくさん書かれていますが、
+この殆どはプログラムのコードではありません。
+内容は、R Notebook の簡単な使い方の説明ですが、
+今は、特に気にしなくて結構です。
+また、ここに書かれている文書は、<strong>編集して消してしまっても、全然平気</strong>です。
+R Notebookを新規作成すれば、いつでも同じものが出てきます。</p>
+</div>
+<div id="r-notebook-2" class="section level2">
+<h2><span class="header-section-number">5.3</span> R Notebookの構造</h2>
+<p>R Notebookの説明を理解するためには、まず最低限、
+R Notebookの構造を覚えておかなければなりません。</p>
+<div id="yaml" class="section level3">
+<h3><span class="header-section-number">5.3.1</span> 設定を行うYAMLヘッダ</h3>
+<p>ファイルの先頭に注目してください。</p>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="op">---</span>
+title<span class="op">:</span><span class="st"> &quot;R Notebook&quot;</span>
+output<span class="op">:</span><span class="st"> </span>html_notebook
+<span class="op">---</span></code></pre>
+<p>R Notebookの先頭には必ず、この形式の表記があります。
+この部分を<strong>YAMLヘッダ</strong>（YAMLはヤムルと読みます）と呼びます。
+YAMLは、データ記述方法の一つで、
+<code>---</code>に囲まれた部分に、あるルールに基づいてデータを記載する方法で、
+R Notebook では、ここにそのノートのための設定を記載します。
+しかし、R Notebook を触り始める時には、
+この部分に何を書くのかを覚えるのではなく、
+まず、ファイル先頭の<code>---</code>に囲まれた部分が、<strong>YAMLヘッダ</strong>であるということを
+把握すれば十分です。</p>
+</div>
+<div id="section-47" class="section level3">
+<h3><span class="header-section-number">5.3.2</span> コードが実行できる場所、チャンク</h3>
+<p>真ん中あたりに
+<code>```{r}</code>と<code>```</code>に挟まれた部分があります。
+このような部分を<strong>チャンク</strong>と呼びます。
+チャンクはよく見ると、ほかの部分と少し色が変わっています。
+また、右端に歯車、下三角、右三角の小さなアイコンがあります。（図<a href="05_script.html#fig:chunk001">5.2</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:chunk001"></span>
+<img src="images/chunk001.png" alt="チャンク" width="80%" />
+<p class="caption">
+Figure 5.2: チャンク
+</p>
+</div>
+<p>このチャンクにコマンドを書いて、右端の右三角アイコンをクリックすると、
+チャンク内のコマンドが実行され、チャンクのすぐ下に結果が出力されます。
+試しに、右三角アイコンをクリックしてみてください。carsデータに関する散布図が描画されます。</p>
+<p>チャンクは、ノートの中に幾つでも作れます。
+チャンクは、<code>```{r}</code>と<code>```</code>に挟まれた部分なので、
+基本は、これを直接自分で書き込むことで作成できますが、
+キーボードショートカット（Ctrl + Alt + I）や
+ツールバーの<strong>Insert</strong>アイコンをクリックすると出てくるメニューから
+<strong>R</strong>を選ぶことで
+カーソル位置に空のチャンクを挿入できます。</p>
+</div>
+<div id="section-48" class="section level3">
+<h3><span class="header-section-number">5.3.3</span> それ以外の部分</h3>
+<p>YAMLヘッダとチャンク以外の部分は、
+メモ帳に字を書いているのと同じです。
+この部分に、コードに関する説明や、
+コードを実行した結果に対するコメントや考え等
+文章ならなんでも書くことが出来ます。</p>
+</div>
+</div>
+<div id="r-notebook--" class="section level2">
+<h2><span class="header-section-number">5.4</span> R Notebook と マークダウン</h2>
+<p>R Notebookを新規作成しただけの状態では、
+編集ペインに表示されているだけで、実体のファイルがありません。
+編集ペインのタブの部分を見てください。
+新規作成されたR Notebookは、<strong>Untitled1</strong>となっているはずです。
+この名称は、編集ペインの内容がまだ保存されていなくて、
+ファイルの実態が無い事を表しています。</p>
+<p>そこで、今から、編集ペインの内容を保存して、
+ファイルの実態を作成しましょう。
+ツールバーにある、フロッピーディスクのアイコンをクリック、若しくは、
+キーボードショートカット（Ctrl + S）で、ファイルの保存が出来ます。
+ファイル保存ダイアログが出るので、保存する場所が、
+プロジェクトのディレクトリであることを確認して、
+適当なファイル名、例えば、<code>my_first_note</code>と入力します。
+この時、拡張子は付けなくて結構です。</p>
+<p>ファイルを保存すると、
+まず、タブの部分が Untitled1 から
+保存したファイル名、
+例えば <strong>my_first_note.Rmd</strong>等に変わっていることが確認できます。</p>
+<p>RStudioの右下ペインをFilesタブに切り替えて下さい。
+そこには、プロジェクトディレクトリ内に有るファイルの一覧が表示されていますが、
+その中に先ほど決定したファイル名に<code>.Rmd</code>という拡張子、及び、
+<code>.nb.html</code>という拡張子が付いた２つのファイルをみつけることが出来ます。（図<a href="05_script.html#fig:filetab001">5.3</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:filetab001"></span>
+<img src="images/filetab001.png" alt="右下ペインFilesタブ" width="80%" />
+<p class="caption">
+Figure 5.3: 右下ペインFilesタブ
+</p>
+</div>
+<p>今、編集ペインで編集しているファイルは、<code>.Rmd</code>の拡張子が付いているファイルです。
+今まで、「R Notebookを新規作成します」等という風に説明していましたが、
+実は、この編集領域で書いてきた書式は、
+<strong>Ｒマークダウン</strong>と呼ばれるルールに従って書かれている書式です。
+そして、このRマークダウン形式で書かれているファイルには、
+<code>.Rmd</code>という拡張子が付けられます。</p>
+<div id="section-49" class="section level3">
+<h3><span class="header-section-number">5.4.1</span> マークダウン</h3>
+<p>パソコンを使った文書作成を行う時、
+真っ先にイメージするのは、
+マイクロソフトのワード等に代表されるワープロソフトです。
+これらのソフトは、文書作成時に、文章としての内容だけでなく、
+印刷される時のイメージ、
+例えば、文章が何処で折り返されるとか、ここの文字の大きさや太字にするかどうか等の文書の体裁を
+画面上で見た目通りに指定して、作製していきます。</p>
+<p>しかし、実は、コンピューターを使った文書作成には、別の方法もあります。
+その一つが<strong>マークダウン</strong>です。
+マークダウンでの文書作成では、文書の内容と体裁を切り離して処理します。
+まず、文書の内容については、タイトル、段落、文、
+といった構造を意識して文書の内容を記述するだけです。
+一方、体裁部分は、文書の意味的な内容は関知せず、
+その構造等のみに基づいて体裁を決めて処理します。</p>
+<p>こうすることで、まず、文書の内容を作成する時には、
+デザインに気を使うことなく、
+その文書の意味的内容の作成に集中が出来ます。
+そして、体裁は、
+特に気を使わなくても統一的な体裁を適用しやすくなると共に、
+違う体裁に切り変えれば、文書全体の体裁を
+一気に変更することが簡単に出来るようになります。</p>
+</div>
+<div id="section-50" class="section level3">
+<h3><span class="header-section-number">5.4.2</span> マークダウンの出力ファイル</h3>
+<p>ここで、マークダウンという言葉が初耳の方にとっては、
+あまりイメージできないと思いますので、実物を見てみましょう。
+実は、文書の作成部分というのが、<code>.Rmd</code>ファイルの内容です。
+そして、マークダウンについて体裁を処理したものが、<code>.nb.html</code>ファイルです。</p>
+<p>このように、マークダウンを使った文書作成では、
+まず、<code>.Rmd</code>ファイルに文書の中身を作製し、
+これを処理して、体裁の整えられた<strong>出力ファイルが別のファイルとして作製</strong>されます。
+尚、RStudio上で、<strong>R Notebook</strong> を扱う場合、
+出力について特別な事をする必要はなく、
+単に、<strong><code>.Rmd</code>ファイルを保存するたびに<code>.nb.html</code>ファイルが自動で出力</strong>されます。
+(既にファイルがある場合上書きされて、保存された.Rmdに対応する最新のものになります)</p>
+<p>出力されたファイルの拡張子が<code>.nb.html</code>で、htmlファイルの一種であることが分かります。
+htmlファイルは、いわゆるインターネットで見ているページのもとになっている
+html書式で書かれたファイルであり、この種類のファイルは、
+インターネットエクスプローラー等のWebブラウザで開いて見ることが出来ます。
+このRStudioの右下ペインFilesタブの中で、
+<code>.nb.html</code>という拡張子がついたファイル名の部分をクリックすると、
+メニューがポップアップするので、
+その中から<code>View in Web Browser</code>を選択してください。
+これが、体裁を整えた<strong>マークダウンの出力</strong>ファイルです。
+（図<a href="05_script.html#fig:nbhtmloutputfile001">5.4</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:nbhtmloutputfile001"></span>
+<img src="images/nbhtmloutputfile001.png" alt="R Notebook出力" width="85%" />
+<p class="caption">
+Figure 5.4: R Notebook出力
+</p>
+</div>
+<p>RStudioの編集ペインで書き込んでいる内容が、
+まあまあ綺麗な体裁で、表示できていることが分かると思います。</p>
+<p>もう少しだけ、マークダウンの話を続けます。
+マークダウンは、色々なところで、色々なものに使われます。
+例えば、あなたが、今読んでいるこの文書ですが、
+これもマークダウンで書かれてた文書に
+体裁を整える処理が行われてファイルとして出力され、
+それをあなたが読んでいます。</p>
+<p>もし、Web上で読んでいるならば、htmlファイルとして出力されたものを読んでいますし、
+電子ブックでなら、epubファイルとして、
+紙ベースならpdfとして出力し、それを印刷したものかもしれません。
+あなたが、どの読み方をしていたとしても
+今僕が書いているのは、文書の体裁等を全く気にせず
+構造と内容のみを書き綴っただけのRマークダウンファイルなのです。（図<a href="05_script.html#fig:markdown001">5.5</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:markdown001"></span>
+<img src="images/markdown001.png" alt="この文書の作成風景" width="95%" />
+<p class="caption">
+Figure 5.5: この文書の作成風景
+</p>
+</div>
+</div>
+<div id="section-51" class="section level3">
+<h3><span class="header-section-number">5.4.3</span> 出力形式の変更</h3>
+<p>markdownは、その処理によってさまざまな出力をすることが出来るというお話をしました。
+そして、<code>R Notebook</code> も、そのmarkdownによるさまざまな出力のひとつなのです。
+さて、では、さまざまな出力の中から、どうやって出力したい形式を選ぶのでしょうか？
+実際には、色々な方法がありますが、<code>R Notebook</code>をRStudioで扱う場合には、
+ファイル先頭のYAMLヘッダ内の、<code>output:</code>項目に<code>html_notebook</code>という値を与えます。
+RStudioでは、この様に設定されているRmdファイルを読み込めば、
+<code>R Notebook</code>で出力をしてくれます。</p>
+<p>すなわち、この部分を他の値に書き換えると、別の形式で出力してくれるのです。</p>
+<p>編集ペインのツールバーに
+Rと書かれたノートの絵が描かれたアイコンと
+その横には<code>Preview</code>と書かれている部分
+（ここをクリックすると、R Notebookの出力のプレビューをしてくれます。）
+がありますが、そのPreviewと書かれた文字の右隣に小さな下三角のアイコンがあります。
+そこを、クリックするとメニューが現れます。（図<a href="05_script.html#fig:selectmenuforoutput001">5.6</a>）</p>
+<div class="figure" style="text-align: center"><span id="fig:selectmenuforoutput001"></span>
+<img src="images/selectmenuforoutput001.png" alt="出力形式の選択" width="70%" />
+<p class="caption">
+Figure 5.6: 出力形式の選択
+</p>
+</div>
+<p>メニューの中に、次の選択肢がみられます。</p>
+<ul>
+<li>Knit to HTML</li>
+<li>Knit to PDF</li>
+<li>Knit to Word</li>
+</ul>
+<p>これらを選択すれば、それぞれ、HTML、PDF<a href="#fn7" class="footnote-ref" id="fnref7"><sup>7</sup></a>、Wordの出力を行ってくれます。
+<code>Knit</code>は、ニットと読みます。
+ニットは編み物をするという意味の英語ですが、
+ここでは、マークダウンの処理をするRパッケージ名です。
+つまりは、「ニットする」とは、編み物を編み上げるように、
+マークダウンファイルを処理して出力ファイルを作るということを示しています。</p>
+<p>では試しに、HTMLファイルの出力を行ってみましょう。
+メニューから<code>Knit to HTML</code>を選択してください。
+右下ペインのFilseタブに<code>.html</code>ファイルが新たに作成され、
+プレビューウインドウも立ち上がるかもしれません。
+しかし、一番注目して欲しいのは、
+編集ペインのメニューバーに<code>Preview</code>と書かれた部分がなくなり、
+その代わりに、
+青い小さな毛玉のアイコンとその隣に<code>Kint</code>と書かれた部分が現れる事です。
+そして、Kintと書かれた部分の右隣の下三角をクリックして現れるメニューに
+<code>R Notebook</code>の文字が無い事も確認してください。</p>
+<p>この様にメニュー操作をしていただけなのに、
+意図せず、R Notebookとしての出力が出来なくなることがあります。</p>
+</div>
+<div id="r-notebook-3" class="section level3">
+<h3><span class="header-section-number">5.4.4</span> R Notebookとして出力するための設定</h3>
+<p>上述のように、色々な操作をしているうちに
+R Notebookでの出力が出来なくなった時、
+YAMLヘッダの<code>output:</code>項目を確認してください。</p>
+<p>先のhtml出力を選択した場合、</p>
+<pre><code>output:
+  html_document:
+    df_print: paged</code></pre>
+<p>という風になっているかもしれません。
+RStudioは、Rmdファイルのこの部分を読み取って、
+それにふさわしいツールバーの内容を表示します。
+上記の例だと、htmlファイルとして出力する設定になっているので、
+通常、htmlファイル出力をするための処理を行う<code>Knit</code>を呼び出すメニューに
+ツールバーが変更されたのでした。</p>
+<p>そこで、R Notebook で出力したい時には、
+<code>output:</code>の内容を次のように書き換えて保存します。</p>
+<pre><code>output: html_notebook</code></pre>
+<p>書き換える時は、output:の行に続いて字下げされている行も全て消して書き換えます。
+（先の例では、<code>df_print: paged</code>の行まで）</p>
+<p>まずは、この方法だけ覚えておけば、
+予期せず出力設定が変わってしまった時に戻すことが出来ます。</p>
+</div>
+</div>
+<div id="r" class="section level2">
+<h2><span class="header-section-number">5.5</span> マークダウンとRマークダウン</h2>
+<div id="section-52" class="section level3">
+<h3><span class="header-section-number">5.5.1</span> マークダウン</h3>
+<p>上述した通り、マークダウンでは文章の中身を記述するわけですが、
+その時、いくつかの簡単なルールに従って文章を書きます。
+また、この文章を書く部分というのは、
+先に述べたYAMLヘッダとチャンク<strong>以外の部分</strong>に書きます。
+以下に、基礎的なマークダウンのルールを少しだけ紹介します。</p>
+<div id="section-53" class="section level4 unnumbered">
+<h4>改行と段落</h4>
+<p>マークダウンで文章を書いていく時、
+文章の折り返しはその表示される媒体に任されるので、
+マークダウンファイル内での改行は無視されます。
+また、文章の区切りは段落を変えるという構造で表現します。
+マークダウンでは文書の間に空行を入れることで
+段落を変えることが出来ます。</p>
+<p>では、次の文を <code>my_first_note.Rmd</code>等のマークダウンファイルに書き込むか、
+コピー＆ペーストしてみましょう。</p>
+<pre><code>これは、一つ目の段落です。
+マークダウンファイルの中で改行しても
+その改行位置に意味は無く、
+出力ファイルではその位置で改行されません。
+
+これが、二つ目の段落です。
+文と文の間にからの行を入れると、
+そこが段落の区切りになります。
+</code></pre>
+<p>書き込んだら、保存してプレビューを見てみてください。
+Rmdに書き込んだ形と、実際に出力される形の違いを確認してください。</p>
+</div>
+<div id="section-54" class="section level4 unnumbered">
+<h4>見出し</h4>
+<p>段落の集まりには、見出しを付けることが出来ます。
+見出しには、章のように大きな見出し、節のように中くらいの見出し、
+その次の段落の集まりにつける小見出し等、
+段階を付けることが出来ます。</p>
+<p>見出しは、行頭に<code>#</code>を並べて書くことで表します。
+<code>#</code>が多くなるほど、見出しが小さくなっていきます。
+次の例を、マークダウンファイルに書き込んで試してみてください。</p>
+<pre><code># 大きな見出し
+
+## 中くらいの見出し
+
+中身の文書
+
+### 小さな見出し
+
+中身の文書
+
+</code></pre>
+</div>
+<div id="section-55" class="section level4 unnumbered">
+<h4>箇条書き</h4>
+<p>例えば、次のような箇条書きを書くことが出来ます。</p>
+<ul>
+<li>果物
+<ul>
+<li>みかん</li>
+<li>すいか</li>
+</ul></li>
+<li>野菜
+<ul>
+<li>きゅうり</li>
+<li>キャベツ</li>
+</ul></li>
+</ul>
+<p>マークダウンでの箇条書きは、次のように行頭に<code>-</code>を付け一文字空白を開けて内容を書きます。
+更に、字下げを使うことで、箇条書きの入れ子を作ることも出来ます。
+上の箇条書きは、下のようなマークダウンで表現します。</p>
+<pre><code>- 果物
+  - みかん
+  - すいか
+- 野菜
+  - きゅうり
+  - キャベツ</code></pre>
+</div>
+</div>
+<div id="r-1" class="section level3">
+<h3><span class="header-section-number">5.5.2</span> Rマークダウン</h3>
+<p>マークダウンはここまでお話しした通り、文書を作成するための仕組みですが、
+これにRコマンドの処理や結果を融合させられるようにしたものが、<strong>Rマークダウン</strong>です。</p>
+<p>R Notebookを使って分析作業を行っていく場合、
+Rmdファイル内でその分析についての説明等、文章で表現する部分については
+上述のマークダウンを活用して表現を行います。
+そして、実際のデータの扱いについては、
+チャンク内で、Rのコマンドで処理の流れを表現し、
+それを実行すると、その処理で得られる結果がRmdファイルに埋め込まれます。
+これに加えて、Rのコマンドを直接文書の一部に埋め込む<strong>インライン</strong>処理を使うことも出来ます。</p>
+<div id="section-56" class="section level4 unnumbered">
+<h4>チャンク</h4>
+<p>チャンクの部分に書き込んだコードは自動的に実行されません。
+チャンクの右上の右三角アイコンをクリックしたり、
+“Ctrl + Shift + Enter”のショートカットキーを押して実行する必要があります。
+また、文書内にチャンクが複数ある場合、
+或る実行結果によって保存された変数の内容は、
+それ以前にその変数を使って計算したチャンクについて
+自動的に再計算されない事に注意が必要です。</p>
+<p>文書内の複数チャンクの実行のさせ方は、
+編集ペインのツールバーにある<code>Run</code>の右にある小さな下三角をクリックすると出てくるメニューの中にたくさん用意されています。
+最終的に、文書内の計算に整合性を持たせるには<code>Restart R and Run All chunks</code>を選択するとよいでしょう。（図<a href="05_script.html#fig:runmenu001">5.7</a>）
+これを実行すれば、新しい環境のもと、チャンクをはじめから最後まで順番に実行してくれます。</p>
+<div class="figure" style="text-align: center"><span id="fig:runmenu001"></span>
+<img src="images/runmenu001.png" alt="Runメニュー" width="50%" />
+<p class="caption">
+Figure 5.7: Runメニュー
+</p>
+</div>
+</div>
+<div id="section-57" class="section level4 unnumbered">
+<h4>インライン</h4>
+<p>また、チャンク以外に直接Rのコマンドを埋め込み、
+出力の時には自動的にコマンドの実行結果に置き換えることが出来る書式があります。
+次のように、文章の途中にバッククオートで囲んだコマンドを書きこみます。
+一番初めの<code>r</code>の文字を忘れないようにしましょう。</p>
+<pre><code>今の時刻は、`r date()`です。</code></pre>
+<p>プレビューを確認すると、コマンドの部分が保存した時刻になっているはずです。</p>
+<pre><code>今の時刻は、Sat Jul 13 11:15:11 2019です。</code></pre>
+</div>
+</div>
+</div>
+<div id="r-notebook-" class="section level2">
+<h2><span class="header-section-number">5.6</span> R Notebook とは</h2>
+<p>さて、あらためて、<code>R Notebook</code>とは、どういうものかを見ていきます。</p>
+<p>RStudioで、R Notebook用のRmdファイルを編集ペインで開いた状態にします。
+まず、編集ペインのツールバーから<code>Preview</code>と書かれている部分を押してください。
+別途、体裁を整える処理がなされた文書が別ウインドウで開きます。</p>
+<div id="section-58" class="section level3">
+<h3><span class="header-section-number">5.6.1</span> 保存すると、自動で出力される</h3>
+<p>先に述べましたが、R Notebookは、Rmdファイルが保存されるとすぐさま、
+自動的に出力されます。
+ですから、編集ペインで、文書の何処かに少し文書を付け足して、
+保存してみて下さい。
+付属のプレビューウインドウは、
+元のファイルが変更されると表示が更新されるので
+プレビューウインドウ内の表示が自動的に書き換えたものになっているはずです。</p>
+</div>
+<div id="section-59" class="section level3">
+<h3><span class="header-section-number">5.6.2</span> ファイルを持ち運べる</h3>
+<p>R Notebookとは結局、Rmdファイルに基づいて出力された<strong><code>.nb.html</code>ファイル</strong>のことを言います。</p>
+<p>このファイルは、RStudioやRの環境に関係なく、誰でも見ることが出来ます。
+例えば、RStudioを終了し、そのプロジェクトファイルの中にある
+<code>my_first_note.nb.html</code>をデスクトップ等にコピーし、
+そのコピーしたファイルをダブルクリック等で開いてください。
+自分がいつも使っているWebブラウザが起動して、
+先ほどまで見ていた体裁を整える処理がなされた文書が表示されるはずです。</p>
+<p>このファイルをそのままメールに添付して送信すれば、
+受け取った人も、そのまま同じものを見ることが出来ます。
+その時、その人がRやRStudioを持っている必要はありません。</p>
+</div>
+<div id="html" class="section level3">
+<h3><span class="header-section-number">5.6.3</span> 只のhtmlファイルではない</h3>
+<p>R Notebookは、単に表示するだけならばhtmlファイルと同じなのですが、
+そのもとのデータである<strong>Rmdデータがファイルの中に含まれています</strong>。</p>
+<p>RStudioで、新しいフォルダを作成し、そこに空のプロジェクトを作製してください。
+そして、そのフォルダに先ほどコピーした<code>my_first_note.nb.html</code>を入れてください。
+準備が出来たら、この新しいプロジェクトを開きます。</p>
+<p>右下ペインのFilesタブの中の
+<code>my_first_note.nb.html</code>をクリックするとメニューがポップアップするので、
+<code>Open in Editor</code>を選択します。
+すると、.nb.htmlファイルからRmdファイルが抜き出され、
+プロジェクトディレクトリの中に<code>my_first_note.Rmd</code>が作成されます。
+同時に、左上の編集ペインが開いて、
+このマークダウンファイルを編集出来るようになります。</p>
+
+</div>
+</div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<div class="footnotes">
+<hr />
+<ol start="7">
+<li id="fn7"><p>PDF出力に関しては、RStudioやR以外にTeXと呼ばれる組版システムの
+インストールが必要であったり、日本語については別途設定が必要であったりするので、
+選択してもエラーが出て上手く出力できないかもしれません。<a href="05_script.html#fnref7" class="footnote-back">↩</a></p></li>
+</ol>
+</div>
+            </section>
+
+          </div>
+        </div>
+      </div>
+<a href="04_package.html" class="navigation navigation-prev navigation-unique" aria-label="Previous page"><i class="fa fa-angle-left"></i></a>
+
+    </div>
+  </div>
+<script src="libs/gitbook-2.6.7/js/app.min.js"></script>
+<script src="libs/gitbook-2.6.7/js/lunr.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-search.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-sharing.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-fontsettings.js"></script>
+<script src="libs/gitbook-2.6.7/js/plugin-bookdown.js"></script>
+<script src="libs/gitbook-2.6.7/js/jquery.highlight.js"></script>
+<script>
+gitbook.require(["gitbook"], function(gitbook) {
+gitbook.start({
+"sharing": {
+"github": false,
+"facebook": true,
+"twitter": true,
+"google": false,
+"linkedin": false,
+"weibo": false,
+"instapaper": false,
+"vk": false,
+"all": ["facebook", "google", "twitter", "linkedin", "weibo", "instapaper"]
+},
+"fontsettings": {
+"theme": "white",
+"family": "sans",
+"size": 2
+},
+"edit": {
+"link": null,
+"text": null
+},
+"history": {
+"link": null,
+"text": null
+},
+"download": ["my_book.pdf", "my_book.epub"],
+"toc": {
+"collapse": "subsection"
+}
+});
+});
+</script>
+
+</body>
+
+</html>
